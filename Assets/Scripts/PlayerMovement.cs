@@ -51,6 +51,6 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //Debug.Log(velocity.y);
-        playerController.Move(velocity * Time.deltaTime); // insert change in Y
+        playerController.Move(((movement * playerSpeed) + velocity) * Time.deltaTime); // insert change in Y
     }
 }
