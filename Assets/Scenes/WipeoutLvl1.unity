@@ -2079,11 +2079,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 928569566}
-  - component: {fileID: 928569568}
-  - component: {fileID: 928569571}
   - component: {fileID: 928569567}
   - component: {fileID: 928569569}
-  - component: {fileID: 928569570}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2118,7 +2115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23ff17ba6b8ec7b4a81d4edc78c75b11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 928569568}
+  playerController: {fileID: 0}
   playerTransform: {fileID: 928569566}
   groundCheckTransform: {fileID: 1176837968}
   playerSpeed: 4.87
@@ -2129,24 +2126,6 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 768
---- !u!143 &928569568
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 928569565}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Height: 1.98
-  m_Radius: 0.42
-  m_SlopeLimit: 45
-  m_StepOffset: 0
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &928569569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2160,34 +2139,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 928569566}
---- !u!114 &928569570
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 928569565}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ad43a32d0b7cc8488c5210ec35402b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rigidBody: {fileID: 0}
-  collisionForce: 1
-  upwardsForce: 100
---- !u!65 &928569571
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 928569565}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 2, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
