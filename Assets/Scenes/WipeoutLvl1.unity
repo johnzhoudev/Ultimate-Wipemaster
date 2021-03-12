@@ -2265,9 +2265,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a17c6b622f63a4419f5664183aa35f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseXSensitivity: 1000
-  mouseYSensitivity: 1000
+  mouseXSensitivity: 500
+  mouseYSensitivity: 500
   player: {fileID: 928569566}
+  playerRigidbody: {fileID: 928569568}
 --- !u!1001 &994689742
 PrefabInstance:
   m_ObjectHideFlags: 0

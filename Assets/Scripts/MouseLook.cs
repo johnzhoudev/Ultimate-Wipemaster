@@ -7,6 +7,7 @@ public class MouseLook : MonoBehaviour
     public float mouseYSensitivity = 100f;
     float xRotation = 0f; // Rotation in euler angles (degrees) relative to parent
     public Transform player;
+    public Rigidbody playerRigidbody;
 
     private void Start()
     {
@@ -18,13 +19,14 @@ public class MouseLook : MonoBehaviour
     {
         // Get Mouse x movement and rotate playerBody
         float mouseX = Input.GetAxis("Mouse X") * mouseXSensitivity * Time.deltaTime;
-        player.Rotate(Vector3.up * mouseX);
+        //player.Rotate(Vector3.up * mouseX);
+        playerRigidbody.rotation *= Quaternion.Euler(Vector3.up * mouseX);
 
         // Get Mouse Y movement and rotate camera
         // Easier to just set the rotation instead of checking to see if past 90 degrees or -90 degrees and adjusting accordingly
         float mouseY = Input.GetAxis("Mouse Y") * mouseYSensitivity * Time.deltaTime;
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f); // Clamping
-        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f); // rotate camera instead of player
     }
 }
