@@ -9,7 +9,7 @@ public class RigidbodyController : MonoBehaviour
     void FixedUpdate()
     {
         // Get the inputs
-        Vector3 targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * speed;
+        Vector3 targetVelocity = new Vector3(Input.GetAxis("Vertical"), 0, -Input.GetAxis("Horizontal")) * speed;
         Vector3 currentVelocity = playerTransform.InverseTransformDirection(playerRigidbody.velocity);
 
         playerRigidbody.AddRelativeForce(targetVelocity - currentVelocity, ForceMode.VelocityChange);
