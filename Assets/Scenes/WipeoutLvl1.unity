@@ -2172,8 +2172,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerRigidbody: {fileID: 928569568}
   playerTransform: {fileID: 928569566}
-  speed: 20
-  gravity: -100
+  playerCollider: {fileID: 928569571}
+  speed: 15
+  gravity: -50
+  groundCheckDistance: 0
 --- !u!136 &928569571
 CapsuleCollider:
   m_ObjectHideFlags: 0
