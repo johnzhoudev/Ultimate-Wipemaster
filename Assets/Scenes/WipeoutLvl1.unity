@@ -2175,7 +2175,8 @@ MonoBehaviour:
   playerCollider: {fileID: 928569571}
   speed: 15
   gravity: -50
-  groundCheckDistance: 0
+  groundCheckDistance: 0.2
+  jumpDistance: 1
 --- !u!136 &928569571
 CapsuleCollider:
   m_ObjectHideFlags: 0

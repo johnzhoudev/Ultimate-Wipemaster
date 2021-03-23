@@ -9,6 +9,7 @@ public class RigidbodyController : MonoBehaviour
     public float gravity = -9.81f;
 
     public float groundCheckDistance;
+    public float jumpDistance;
     float distanceToGround;
 
     private void Start()
@@ -32,7 +33,7 @@ public class RigidbodyController : MonoBehaviour
         if (Physics.Raycast(playerTransform.position, Vector3.down, distanceToGround + groundCheckDistance) &&
             Input.GetButton("Jump"))
         {
-            Debug.Log("Jump Detected");
+            playerRigidbody.AddForce(Vector3.up * Mathf.Sqrt(-2f * gravity * jumpDistance), ForceMode.VelocityChange);
         }
     }
 
