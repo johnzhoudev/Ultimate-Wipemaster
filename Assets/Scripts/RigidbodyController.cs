@@ -4,18 +4,14 @@ public class RigidbodyController : MonoBehaviour
 {
     public Rigidbody playerRigidbody;
     public Transform playerTransform;
+    public Transform groundCheckTransform;
     public CapsuleCollider playerCollider;
+    public LayerMask environmentLayers;
     public float speed;
     public float gravity = -9.81f;
 
-    public float groundCheckDistance;
+    public float groundCheckRadius;
     public float jumpDistance;
-    float distanceToGround;
-
-    private void Start()
-    {
-        distanceToGround = playerCollider.bounds.extents.y;
-    }
 
     void FixedUpdate()
     {
@@ -30,10 +26,12 @@ public class RigidbodyController : MonoBehaviour
         playerRigidbody.AddForce(Vector3.up * gravity, ForceMode.Acceleration);
 
         // Jump check: If grounded and spacebar
-        if (Physics.Raycast(playerTransform.position, Vector3.down, distanceToGround + groundCheckDistance) &&
+        if (Physics.CheckSphere(groundCheckTransform.position, groundCheckRadius, environmentLayers) &&
             Input.GetButton("Jump"))
         {
-            playerRigidbody.AddForce(Vector3.up * Mathf.Sqrt(-2f * gravity * jumpDistance), ForceMode.VelocityChange);
+            Vector3 velocity = playerRigidbody.velocity;
+            velocity.y = Mathf.Sqrt(-2f * gravity * jumpDistance);
+            playerRigidbody.velocity = velocity;
         }
     }
 
