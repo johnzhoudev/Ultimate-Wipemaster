@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2410092222113041804}
   - component: {fileID: 4585412157591999585}
   m_Layer: 0
-  m_Name: Cube 1 (1)
+  m_Name: NarrowPad1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87,7 +87,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6773609218158796309}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 4c41fc2bf7afee742bbb4a84981da3a3, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
