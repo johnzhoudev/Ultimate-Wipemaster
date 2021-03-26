@@ -2,26 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-enum Checkpoint
+public enum Checkpoint
 {
     Start = 0,
 }
 
-// GameManager requires the RigidbodyController of the player
-[RequireComponent(typeof(RigidbodyController))]
 public class GameManager : MonoBehaviour
 {
     public RigidbodyController playerController;
     public Vector3 startLocation;
+    public Vector3 startRotation;
 
     void Start()
     {
-        //playerController = GameObject.Find("Player").GetComponent<RigidbodyController>();
+        playerController = GameObject.Find("Player").GetComponent<RigidbodyController>();
     }
 
-    public void RestartLevel(int checkpoint)
+    public void RestartLevel(Checkpoint checkpoint)
     {
-        playerController.teleport(startLocation);
+        playerController.teleport(startLocation, startRotation);
     }
 
 }

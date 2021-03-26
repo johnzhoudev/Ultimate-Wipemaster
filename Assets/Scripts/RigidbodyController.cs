@@ -53,4 +53,12 @@ public class RigidbodyController : MonoBehaviour
         playerTransform.rotation = Quaternion.Euler(worldRotation);
     }
 
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            GameObject.Find("GameManager").GetComponent<GameManager>().RestartLevel(Checkpoint.Start);
+        }
+    }
+
 }
