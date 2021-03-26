@@ -42,4 +42,15 @@ public class RigidbodyController : MonoBehaviour
         return currentRelativeVelocity;
     }
 
+    public void teleport(Vector3 coordinates)
+    {
+        playerTransform.position = coordinates;
+    }
+
+    public void teleport(Vector3 worldCoordinates, Vector3 worldRotation)
+    {
+        playerTransform.position = worldCoordinates;
+        playerTransform.rotation = Quaternion.Euler(worldRotation);
+    }
+
 }

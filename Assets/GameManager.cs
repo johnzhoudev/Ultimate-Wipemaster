@@ -2,17 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+enum Checkpoint
+{
+    Start = 0,
+}
+
+// GameManager requires the RigidbodyController of the player
+[RequireComponent(typeof(RigidbodyController))]
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public RigidbodyController playerController;
+    public Vector3 startLocation;
+
     void Start()
     {
-        
+        //playerController = GameObject.Find("Player").GetComponent<RigidbodyController>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void RestartLevel(int checkpoint)
     {
-        
+        playerController.teleport(startLocation);
     }
+
 }
