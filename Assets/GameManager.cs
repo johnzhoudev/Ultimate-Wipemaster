@@ -13,11 +13,6 @@ public class GameManager : MonoBehaviour
     public Vector3 startLocation;
     public Vector3 startRotation;
 
-    void Start()
-    {
-        playerController = GameObject.Find("Player").GetComponent<RigidbodyController>();
-    }
-
     public void RestartLevel(Checkpoint checkpoint)
     {
         playerController.teleport(startLocation, startRotation);
