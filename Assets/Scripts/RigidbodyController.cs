@@ -26,13 +26,17 @@ public class RigidbodyController : MonoBehaviour
         playerRigidbody.AddForce(Vector3.up * gravity, ForceMode.Acceleration);
 
         // Jump check: If grounded and spacebar
-        if (Physics.CheckSphere(groundCheckTransform.position, groundCheckRadius, environmentLayers) &&
-            Input.GetButton("Jump"))
+        if (isGrounded() && Input.GetButton("Jump"))
         {
             Vector3 velocity = playerRigidbody.velocity;
             velocity.y = Mathf.Sqrt(-2f * gravity * jumpDistance);
             playerRigidbody.velocity = velocity;
         }
+    }
+
+    bool isGrounded()
+    {
+        return (Physics.CheckSphere(groundCheckTransform.position, groundCheckRadius, environmentLayers));
     }
 
     Vector3 getCurrentTranslationalVelocity()
