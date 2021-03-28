@@ -16,9 +16,30 @@ public class GameManager : MonoBehaviour
     // UI Related imports
     public UIManager uiManager;
 
+    bool isWipeoutScreenEnabled;
+
+    private void Start()
+    {
+        playerController.enableMovement();
+    }
+
+    void Update()
+    {
+        if (isWipeoutScreenEnabled && Input.GetButton("Jump")) { wipeoutEnd(); }
+    }
+
     public void onWipeout()
     {
         uiManager.openWipeoutScreen();
+        playerController.disableMovement();
+        isWipeoutScreenEnabled = true;
+    }
+
+    void wipeoutEnd()
+    {
+        uiManager.closeWipeoutScreen();
+        playerController.enableMovement();
+        isWipeoutScreenEnabled = false;
     }
 
     public void RestartLevel(Checkpoint checkpoint)

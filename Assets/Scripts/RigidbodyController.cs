@@ -15,8 +15,12 @@ public class RigidbodyController : MonoBehaviour
     public float groundCheckRadius;
     public float jumpDistance;
 
+    bool isMovementEnabled;
+
     void FixedUpdate()
     {
+        if (!isMovementEnabled) { return; }
+
         // Get the inputs
         Vector3 targetVelocity = new Vector3(Input.GetAxis("Vertical"), 0, -Input.GetAxis("Horizontal")) * speed;
         Vector3 currentVelocity = getCurrentTranslationalVelocity();
@@ -68,5 +72,9 @@ public class RigidbodyController : MonoBehaviour
             gameManager.RestartLevel(Checkpoint.Start);
         }
     }
+
+    public void disableMovement() { isMovementEnabled = false; }
+
+    public void enableMovement() { isMovementEnabled = true; }
 
 }

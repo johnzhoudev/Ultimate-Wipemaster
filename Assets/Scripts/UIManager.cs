@@ -9,9 +9,9 @@ public class UIManager : MonoBehaviour
     {
         wipeoutScreenManager = gameObject.GetComponent<WipeoutScreenManager>();    
     }
-    public void openWipeoutScreen()
-    {
-        wipeoutScreenManager.openWipeoutScreen();
-    }
+
+    public void openWipeoutScreen() { wipeoutScreenManager.openWipeoutScreen(); }
+
+    public void closeWipeoutScreen() { wipeoutScreenManager.closeWipeoutScreen(); }
 
 }
