@@ -2,6 +2,8 @@
 
 public class RigidbodyController : MonoBehaviour
 {
+
+    public GameManager gameManager;
     public Rigidbody playerRigidbody;
     public Transform playerTransform;
     public Transform groundCheckTransform;
@@ -61,7 +63,9 @@ public class RigidbodyController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ground")
         {
-            GameObject.Find("GameManager").GetComponent<GameManager>().RestartLevel(Checkpoint.Start);
+            //GameObject.Find("GameManager").GetComponent<GameManager>().RestartLevel(Checkpoint.Start);
+            gameManager.onWipeout();
+            gameManager.RestartLevel(Checkpoint.Start);
         }
     }
 

@@ -13,6 +13,14 @@ public class GameManager : MonoBehaviour
     public Vector3 startLocation;
     public Vector3 startRotation;
 
+    // UI Related imports
+    public UIManager uiManager;
+
+    public void onWipeout()
+    {
+        uiManager.openWipeoutScreen();
+    }
+
     public void RestartLevel(Checkpoint checkpoint)
     {
         playerController.teleport(startLocation, startRotation);
