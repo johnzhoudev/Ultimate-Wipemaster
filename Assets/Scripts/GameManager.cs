@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public enum Checkpoint
 {
     Start = 0,
@@ -9,6 +8,8 @@ public enum Checkpoint
 
 public class GameManager : MonoBehaviour
 {
+    const float WIPEOUT_SCREEN_JUMP_DELAY = 0.2f;
+
     public RigidbodyController playerController;
     public Vector3 startLocation;
     public Vector3 startRotation;
@@ -25,7 +26,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (isWipeoutScreenEnabled && Input.GetButton("Jump")) { wipeoutEnd(); }
+        if (isWipeoutScreenEnabled && Input.GetButton("Jump")) { StartCoroutine(wipeoutEnd()); }
     }
 
     public void onWipeout()
@@ -35,11 +36,14 @@ public class GameManager : MonoBehaviour
         isWipeoutScreenEnabled = true;
     }
 
-    void wipeoutEnd()
+    IEnumerator wipeoutEnd()
     {
         uiManager.closeWipeoutScreen();
-        playerController.enableMovement();
         isWipeoutScreenEnabled = false;
+
+        yield return new WaitForSeconds(WIPEOUT_SCREEN_JUMP_DELAY);
+
+        playerController.enableMovement();
     }
 
     public void RestartLevel(Checkpoint checkpoint)
