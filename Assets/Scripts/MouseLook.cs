@@ -2,6 +2,7 @@
 
 public class MouseLook : MonoBehaviour
 {
+    bool isMovementEnabled;
 
     public float mouseXSensitivity = 100f;
     public float mouseYSensitivity = 100f;
@@ -13,11 +14,14 @@ public class MouseLook : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        isMovementEnabled = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!isMovementEnabled) { return; }
+
         // Get Mouse x movement and rotate playerBody
         float mouseX = Input.GetAxis("Mouse X") * mouseXSensitivity;
         player.Rotate(Vector3.up * mouseX);
@@ -29,5 +33,14 @@ public class MouseLook : MonoBehaviour
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f); // Clamping
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f); // rotate camera instead of player
+    }
+
+    public void disableMovement() { isMovementEnabled = false; }
+    public void enableMovement() { isMovementEnabled = true; }
+
+    public void setVerticalCameraRotation(float rotation)
+    {
+        xRotation = Mathf.Clamp(rotation, -90f, 90f);
+        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
     }
 }

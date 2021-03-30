@@ -9,10 +9,13 @@ public enum Checkpoint
 public class GameManager : MonoBehaviour
 {
     const float WIPEOUT_SCREEN_JUMP_DELAY = 0.2f;
+    const float CAMERA_STRAIGHT_AHEAD = 0f;
 
     public RigidbodyController playerController;
+    public MouseLook playerMouseLook;
     public Vector3 startLocation;
     public Vector3 startRotation;
+    public float startCameraVerticalRotation;
 
     // UI Related imports
     public UIManager uiManager;
@@ -36,7 +39,7 @@ public class GameManager : MonoBehaviour
     {
         soundManager.playSplash();
         uiManager.openWipeoutScreen();
-        playerController.disableMovement();
+        disableMovement();
         isWipeoutScreenEnabled = true;
     }
 
@@ -44,6 +47,7 @@ public class GameManager : MonoBehaviour
     {
         uiManager.closeWipeoutScreen();
         isWipeoutScreenEnabled = false;
+        playerMouseLook.enableMovement();
 
         yield return new WaitForSeconds(WIPEOUT_SCREEN_JUMP_DELAY);
 
@@ -53,6 +57,19 @@ public class GameManager : MonoBehaviour
     public void RestartLevel(Checkpoint checkpoint)
     {
         playerController.teleport(startLocation, startRotation);
+        playerMouseLook.setVerticalCameraRotation(CAMERA_STRAIGHT_AHEAD);
+    }
+
+    void disableMovement()
+    {
+        playerController.disableMovement();
+        playerMouseLook.disableMovement();
+    }
+
+    void enableMovement()
+    {
+        playerController.enableMovement();
+        playerMouseLook.enableMovement();
     }
 
 }
