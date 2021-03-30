@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         if (isWipeoutScreenEnabled && Input.GetButton("Jump")) { StartCoroutine(wipeoutEnd()); }
+        if (Input.GetKeyDown(KeyCode.Escape)) { Application.Quit(); }
     }
 
     public void onWipeout()
