@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour
     // UI Related imports
     public UIManager uiManager;
 
+    // Sound Related Imports
+    public SoundManager soundManager;
+
     bool isWipeoutScreenEnabled;
 
     private void Start()
@@ -31,6 +34,7 @@ public class GameManager : MonoBehaviour
 
     public void onWipeout()
     {
+        soundManager.playSplash();
         uiManager.openWipeoutScreen();
         playerController.disableMovement();
         isWipeoutScreenEnabled = true;
