@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     public Vector3 startLocation;
     public Vector3 startRotation;
     public float startCameraVerticalRotation;
+    [Tooltip("Disables ground endgame")]
+    public bool developmentMode = false;
 
     // UI Related imports
     public UIManager uiManager;
@@ -38,6 +40,7 @@ public class GameManager : MonoBehaviour
 
     public void onWipeout()
     {
+        if (developmentMode) { return; }
         soundManager.playSound("Splash");
         soundManager.playSound("AirHorn");
         uiManager.openWipeoutScreen();
@@ -47,6 +50,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator wipeoutEnd()
     {
+        if (developmentMode) { yield break; }
         soundManager.stopSound("AirHorn");
         uiManager.closeWipeoutScreen();
         isWipeoutScreenEnabled = false;
@@ -59,6 +63,7 @@ public class GameManager : MonoBehaviour
 
     public void RestartLevel(Checkpoint checkpoint)
     {
+        if (developmentMode) { return; }
         playerController.teleport(startLocation, startRotation);
         playerMouseLook.setVerticalCameraRotation(CAMERA_STRAIGHT_AHEAD);
     }
