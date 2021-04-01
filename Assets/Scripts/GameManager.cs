@@ -38,7 +38,8 @@ public class GameManager : MonoBehaviour
 
     public void onWipeout()
     {
-        soundManager.playSplash();
+        soundManager.playSound("Splash");
+        soundManager.playSound("AirHorn");
         uiManager.openWipeoutScreen();
         disableMovement();
         isWipeoutScreenEnabled = true;
@@ -46,6 +47,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator wipeoutEnd()
     {
+        soundManager.stopSound("AirHorn");
         uiManager.closeWipeoutScreen();
         isWipeoutScreenEnabled = false;
         playerMouseLook.enableMovement();
