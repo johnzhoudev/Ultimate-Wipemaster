@@ -2,6 +2,8 @@
 
 public class RigidbodyController : MonoBehaviour
 {
+
+    public GameManager gameManager;
     public Rigidbody playerRigidbody;
     public Transform playerTransform;
     public Transform groundCheckTransform;
@@ -13,8 +15,12 @@ public class RigidbodyController : MonoBehaviour
     public float groundCheckRadius;
     public float jumpDistance;
 
+    bool isMovementEnabled;
+
     void FixedUpdate()
     {
+        if (!isMovementEnabled) { return; }
+
         // Get the inputs
         Vector3 targetVelocity = new Vector3(Input.GetAxis("Vertical"), 0, -Input.GetAxis("Horizontal")) * speed;
         Vector3 currentVelocity = getCurrentTranslationalVelocity();
@@ -26,13 +32,17 @@ public class RigidbodyController : MonoBehaviour
         playerRigidbody.AddForce(Vector3.up * gravity, ForceMode.Acceleration);
 
         // Jump check: If grounded and spacebar
-        if (Physics.CheckSphere(groundCheckTransform.position, groundCheckRadius, environmentLayers) &&
-            Input.GetButton("Jump"))
+        if (isGrounded() && Input.GetButton("Jump"))
         {
             Vector3 velocity = playerRigidbody.velocity;
             velocity.y = Mathf.Sqrt(-2f * gravity * jumpDistance);
             playerRigidbody.velocity = velocity;
         }
+    }
+
+    bool isGrounded()
+    {
+        return (Physics.CheckSphere(groundCheckTransform.position, groundCheckRadius, environmentLayers));
     }
 
     Vector3 getCurrentTranslationalVelocity()
@@ -41,5 +51,30 @@ public class RigidbodyController : MonoBehaviour
         currentRelativeVelocity.y = 0;
         return currentRelativeVelocity;
     }
+
+    public void teleport(Vector3 coordinates)
+    {
+        playerTransform.position = coordinates;
+    }
+
+    public void teleport(Vector3 worldCoordinates, Vector3 worldRotation)
+    {
+        playerTransform.position = worldCoordinates;
+        playerTransform.rotation = Quaternion.Euler(worldRotation);
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            //GameObject.Find("GameManager").GetComponent<GameManager>().RestartLevel(Checkpoint.Start);
+            gameManager.onWipeout();
+            gameManager.RestartLevel(Checkpoint.Start);
+        }
+    }
+
+    public void disableMovement() { isMovementEnabled = false; }
+
+    public void enableMovement() { isMovementEnabled = true; }
 
 }
