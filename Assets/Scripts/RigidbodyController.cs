@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+
 public class RigidbodyController : MonoBehaviour
 {
 
@@ -11,11 +12,13 @@ public class RigidbodyController : MonoBehaviour
     public LayerMask environmentLayers;
     public float speed;
     public float gravity = -9.81f;
-
     public float groundCheckRadius;
     public float jumpDistance;
 
     bool isMovementEnabled;
+
+    const string ROTATING_BAR_TAG = "RotatingBar";
+    const string GROUND_TAG = "Ground";
 
     void FixedUpdate()
     {
@@ -65,11 +68,17 @@ public class RigidbodyController : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Ground")
+
+        switch(collision.gameObject.tag)
         {
-            //GameObject.Find("GameManager").GetComponent<GameManager>().RestartLevel(Checkpoint.Start);
-            gameManager.onWipeout();
-            gameManager.RestartLevel(Checkpoint.Start);
+            case GROUND_TAG:
+                //GameObject.Find("GameManager").GetComponent<GameManager>().RestartLevel(Checkpoint.Start);
+                gameManager.onWipeout();
+                gameManager.RestartLevel(Checkpoint.Start);
+                break;
+            case ROTATING_BAR_TAG:
+                Debug.Log(collision.GetContact(0));
+                break;
         }
     }
 
