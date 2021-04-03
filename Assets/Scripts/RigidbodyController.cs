@@ -68,7 +68,6 @@ public class RigidbodyController : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-
         switch(collision.gameObject.tag)
         {
             case GROUND_TAG:
@@ -77,7 +76,9 @@ public class RigidbodyController : MonoBehaviour
                 gameManager.RestartLevel(Checkpoint.Start);
                 break;
             case ROTATING_BAR_TAG:
-                Debug.Log(collision.GetContact(0));
+                if (collision.contactCount == 0) { return; }
+                Vector3 normalDirection = collision.GetContact(0).normal;
+                playerRigidbody.AddForce(normalDirection * 100 + Vector3.up * 50, ForceMode.VelocityChange);
                 break;
         }
     }
