@@ -17,6 +17,7 @@ public class RigidbodyController : MonoBehaviour
     public CapsuleCollider playerCollider;
     public LayerMask environmentLayers;
     public float speed;
+    public float launchedSpeed;
     public float gravity = -9.81f;
     public float groundCheckRadius;
     public float jumpDistance;
@@ -46,7 +47,7 @@ public class RigidbodyController : MonoBehaviour
         // Add horizontal movements
         if (launchStatus == LaunchStatus.Launched)
         {
-            playerRigidbody.AddRelativeForce(targetVelocity, ForceMode.Acceleration);
+            playerRigidbody.AddRelativeForce(targetVelocity * launchedSpeed, ForceMode.Acceleration);
         } else
         {
             playerRigidbody.AddRelativeForce(targetVelocity - currentVelocity, ForceMode.VelocityChange);

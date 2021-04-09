@@ -2653,6 +2653,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 768
   speed: 12
+  launchedSpeed: 2
   gravity: -50
   groundCheckRadius: 0.2
   jumpDistance: 3
