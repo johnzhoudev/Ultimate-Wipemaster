@@ -2084,8 +2084,10 @@ MonoBehaviour:
   audioSources:
   - audio: {fileID: 809294300}
     identifier: Splash
+    volume: 1
   - audio: {fileID: 809294301}
     identifier: AirHorn
+    volume: 0.274
 --- !u!82 &809294300
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2654,6 +2656,8 @@ MonoBehaviour:
   gravity: -50
   groundCheckRadius: 0.2
   jumpDistance: 3
+  horizontalLaunchSpeed: 30
+  verticalLaunchSpeed: 30
 --- !u!136 &928569571
 CapsuleCollider:
   m_ObjectHideFlags: 0

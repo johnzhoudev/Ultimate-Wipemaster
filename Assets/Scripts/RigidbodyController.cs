@@ -1,5 +1,11 @@
 ﻿using UnityEngine;
 
+public enum LaunchStatus
+{
+    Normal,
+    BeingLaunched,
+    Launched
+}
 
 public class RigidbodyController : MonoBehaviour
 {
@@ -14,8 +20,11 @@ public class RigidbodyController : MonoBehaviour
     public float gravity = -9.81f;
     public float groundCheckRadius;
     public float jumpDistance;
+    public float horizontalLaunchSpeed;
+    public float verticalLaunchSpeed;
 
     bool isMovementEnabled;
+    LaunchStatus launchStatus;
 
     const string ROTATING_BAR_TAG = "RotatingBar";
     const string GROUND_TAG = "Ground";
@@ -24,18 +33,30 @@ public class RigidbodyController : MonoBehaviour
     {
         if (!isMovementEnabled) { return; }
 
+        bool isGrounded = isRigidbodyGrounded();
+
         // Get the inputs
         Vector3 targetVelocity = new Vector3(Input.GetAxis("Vertical"), 0, -Input.GetAxis("Horizontal")) * speed;
         Vector3 currentVelocity = getCurrentTranslationalVelocity();
 
+        // Handle launch statuses
+        if (launchStatus == LaunchStatus.BeingLaunched && !isGrounded) { launchStatus = LaunchStatus.Launched; }
+        else if (launchStatus == LaunchStatus.Launched && isGrounded) { launchStatus = LaunchStatus.Normal; }
+
         // Add horizontal movements
-        playerRigidbody.AddRelativeForce(targetVelocity - currentVelocity, ForceMode.VelocityChange);
+        if (launchStatus == LaunchStatus.Launched)
+        {
+            playerRigidbody.AddRelativeForce(targetVelocity, ForceMode.Acceleration);
+        } else
+        {
+            playerRigidbody.AddRelativeForce(targetVelocity - currentVelocity, ForceMode.VelocityChange);
+        }
 
         // add gravity
         playerRigidbody.AddForce(Vector3.up * gravity, ForceMode.Acceleration);
 
         // Jump check: If grounded and spacebar
-        if (isGrounded() && Input.GetButton("Jump"))
+        if (isGrounded && Input.GetButton("Jump"))
         {
             Vector3 velocity = playerRigidbody.velocity;
             velocity.y = Mathf.Sqrt(-2f * gravity * jumpDistance);
@@ -43,7 +64,7 @@ public class RigidbodyController : MonoBehaviour
         }
     }
 
-    bool isGrounded()
+    bool isRigidbodyGrounded()
     {
         return (Physics.CheckSphere(groundCheckTransform.position, groundCheckRadius, environmentLayers));
     }
@@ -77,10 +98,17 @@ public class RigidbodyController : MonoBehaviour
                 break;
             case ROTATING_BAR_TAG:
                 if (collision.contactCount == 0) { return; }
+                launchStatus = LaunchStatus.BeingLaunched;
                 Vector3 normalDirection = collision.GetContact(0).normal;
-                playerRigidbody.AddForce(normalDirection * 100 + Vector3.up * 50, ForceMode.VelocityChange);
+                launchPlayer(normalDirection);
                 break;
         }
+    }
+
+    void launchPlayer(Vector3 flatDirection)
+    {
+        playerRigidbody.AddForce(flatDirection.normalized * horizontalLaunchSpeed + 
+                                Vector3.up * verticalLaunchSpeed, ForceMode.VelocityChange);
     }
 
     public void disableMovement() { isMovementEnabled = false; }
