@@ -1,5 +1,12 @@
 ﻿using UnityEngine;
 
+public enum LaunchStatus
+{
+    Normal,
+    BeingLaunched,
+    Launched
+}
+
 public class RigidbodyController : MonoBehaviour
 {
 
@@ -10,29 +17,47 @@ public class RigidbodyController : MonoBehaviour
     public CapsuleCollider playerCollider;
     public LayerMask environmentLayers;
     public float speed;
+    public float launchedSpeed;
     public float gravity = -9.81f;
-
     public float groundCheckRadius;
     public float jumpDistance;
+    public float horizontalLaunchSpeed;
+    public float verticalLaunchSpeed;
 
     bool isMovementEnabled;
+    LaunchStatus launchStatus;
+
+    const string ROTATING_BAR_TAG = "RotatingBar";
+    const string GROUND_TAG = "Ground";
 
     void FixedUpdate()
     {
         if (!isMovementEnabled) { return; }
 
+        bool isGrounded = isRigidbodyGrounded();
+
         // Get the inputs
         Vector3 targetVelocity = new Vector3(Input.GetAxis("Vertical"), 0, -Input.GetAxis("Horizontal")) * speed;
         Vector3 currentVelocity = getCurrentTranslationalVelocity();
 
+        // Handle launch statuses
+        if (launchStatus == LaunchStatus.BeingLaunched && !isGrounded) { launchStatus = LaunchStatus.Launched; }
+        else if (launchStatus == LaunchStatus.Launched && isGrounded) { launchStatus = LaunchStatus.Normal; }
+
         // Add horizontal movements
-        playerRigidbody.AddRelativeForce(targetVelocity - currentVelocity, ForceMode.VelocityChange);
+        if (launchStatus == LaunchStatus.Launched)
+        {
+            playerRigidbody.AddRelativeForce(targetVelocity * launchedSpeed, ForceMode.Acceleration);
+        } else
+        {
+            playerRigidbody.AddRelativeForce(targetVelocity - currentVelocity, ForceMode.VelocityChange);
+        }
 
         // add gravity
         playerRigidbody.AddForce(Vector3.up * gravity, ForceMode.Acceleration);
 
         // Jump check: If grounded and spacebar
-        if (isGrounded() && Input.GetButton("Jump"))
+        if (isGrounded && Input.GetButton("Jump"))
         {
             Vector3 velocity = playerRigidbody.velocity;
             velocity.y = Mathf.Sqrt(-2f * gravity * jumpDistance);
@@ -40,7 +65,7 @@ public class RigidbodyController : MonoBehaviour
         }
     }
 
-    bool isGrounded()
+    bool isRigidbodyGrounded()
     {
         return (Physics.CheckSphere(groundCheckTransform.position, groundCheckRadius, environmentLayers));
     }
@@ -65,12 +90,26 @@ public class RigidbodyController : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Ground")
+        switch(collision.gameObject.tag)
         {
-            //GameObject.Find("GameManager").GetComponent<GameManager>().RestartLevel(Checkpoint.Start);
-            gameManager.onWipeout();
-            gameManager.RestartLevel(Checkpoint.Start);
+            case GROUND_TAG:
+                //GameObject.Find("GameManager").GetComponent<GameManager>().RestartLevel(Checkpoint.Start);
+                gameManager.onWipeout();
+                gameManager.RestartLevel(Checkpoint.Start);
+                break;
+            case ROTATING_BAR_TAG:
+                if (collision.contactCount == 0) { return; }
+                launchStatus = LaunchStatus.BeingLaunched;
+                Vector3 normalDirection = collision.GetContact(0).normal;
+                launchPlayer(normalDirection);
+                break;
         }
+    }
+
+    void launchPlayer(Vector3 flatDirection)
+    {
+        playerRigidbody.AddForce(flatDirection.normalized * horizontalLaunchSpeed + 
+                                Vector3.up * verticalLaunchSpeed, ForceMode.VelocityChange);
     }
 
     public void disableMovement() { isMovementEnabled = false; }

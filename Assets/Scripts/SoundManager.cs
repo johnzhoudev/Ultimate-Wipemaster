@@ -9,6 +9,8 @@ public class SoundManager : MonoBehaviour
     {
         public AudioSource audio;
         public string identifier;
+        [Range(0.0f, 1.0f)]
+        public float volume;
     }
 
     public AudioSourceAndIdentifier[] audioSources;
@@ -23,6 +25,7 @@ public class SoundManager : MonoBehaviour
     {
         for (int i = 0; i < audioSources.Length; ++i)
         {
+            audioSources[i].audio.volume = audioSources[i].volume;
             audioDictionary.Add(audioSources[i].identifier, audioSources[i].audio);
         }
     }
