@@ -1,0 +1,8 @@
+To Do List:
+
+- Make prefab for boxing glove
+- Add box collider
+- Add to boxing wall
+- make script to control them...
+	- Move out, move in, punch(), etc.
+
