@@ -8,7 +8,8 @@ public class PunchingGloveController : MonoBehaviour
 
     Transform boxingGloveTransform;
     float punchDistance = 1.9f;
-    float punchTime = 1f;
+    float punchThreshold =  2.5f;
+    float punchTime = 0.1f;
     float punchSpeed;
     float retractTime = 1f;
     float retractSpeed;
@@ -29,6 +30,8 @@ public class PunchingGloveController : MonoBehaviour
         // Handle Punching
         if (isPunching && isWithinPunchDistance())
         {
+            // check if punch will go way out of zone...happens on start
+            if (boxingGloveTransform.localPosition.x + punchSpeed * Time.deltaTime > punchThreshold) { return; }
             boxingGloveTransform.Translate(punchDirection * punchSpeed * Time.deltaTime, Space.Self);
         }
         else if (isPunching && !isWithinPunchDistance())
