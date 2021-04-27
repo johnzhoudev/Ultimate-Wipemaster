@@ -9,9 +9,9 @@ public class PunchingGloveController : MonoBehaviour
     Transform boxingGloveTransform;
     float punchDistance = 1.9f;
     float punchTime = 1f;
-    float punchVelocity;
+    float punchSpeed;
     float retractTime = 1f;
-    float retractVelocity;
+    float retractSpeed;
 
     bool isPunching = false;
     bool isRetracting = false;
@@ -19,27 +19,28 @@ public class PunchingGloveController : MonoBehaviour
     void Start()
     {
         boxingGloveTransform = GetComponent<Transform>();
-        punchVelocity = punchDistance / punchTime;
-        retractVelocity = -1f * punchDistance / retractTime;
+        punchSpeed = punchDistance / punchTime;
+        retractSpeed = punchDistance / retractTime;
         punch();
     }
 
     void Update()
     {
+        // Handle Punching
         if (isPunching && isWithinPunchDistance())
         {
-            boxingGloveTransform.Translate(punchDirection * punchVelocity * Time.deltaTime, Space.Self);
+            boxingGloveTransform.Translate(punchDirection * punchSpeed * Time.deltaTime, Space.Self);
         }
         else if (isPunching && !isWithinPunchDistance())
         {
             isPunching = false;
             retract();
         }
-        else if (isRetracting && isWithinPunchDistance())
+        else if (isRetracting && isWithinRetractDistance())
         {
-            boxingGloveTransform.Translate(punchDirection * retractVelocity * Time.deltaTime, Space.Self);
+            boxingGloveTransform.Translate(punchDirection * -1f * retractSpeed * Time.deltaTime, Space.Self);
         }
-        else if (isRetracting && !isWithinPunchDistance())
+        else if (isRetracting && !isWithinRetractDistance())
         {
             isRetracting = false;
             punch();
@@ -48,7 +49,12 @@ public class PunchingGloveController : MonoBehaviour
 
     bool isWithinPunchDistance()
     {
-        return (0 <= boxingGloveTransform.localPosition.x && boxingGloveTransform.localPosition.x < punchDistance);
+        return boxingGloveTransform.localPosition.x < punchDistance;
+    }
+
+    bool isWithinRetractDistance()
+    {
+        return boxingGloveTransform.localPosition.x > 0;
     }
 
     public void punch()
