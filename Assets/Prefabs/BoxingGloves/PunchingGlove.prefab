@@ -40,6 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 260161915490665600}
+  - component: {fileID: 2938519130278264218}
   m_Layer: 0
   m_Name: PunchingGlove
   m_TagString: Untagged
@@ -63,6 +64,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2938519130278264218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 260161915490665601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835e21ef5e6aa334bad25c2a346ccbff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  punchDirection: {x: 0, y: 0, z: -1}
 --- !u!1 &260161916079023587
 GameObject:
   m_ObjectHideFlags: 0
