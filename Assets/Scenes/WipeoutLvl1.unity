@@ -387,6 +387,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PunchingGlove (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 260161915490665601, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: m_TagString
+      value: PunchingGlove
+      objectReference: {fileID: 0}
     - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
         type: 3}
       propertyPath: startXPosition
@@ -1113,6 +1118,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PunchingGlove (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 260161915490665601, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: m_TagString
+      value: PunchingGlove
+      objectReference: {fileID: 0}
     - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
         type: 3}
       propertyPath: punchDelays.Array.size
@@ -1207,6 +1217,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PunchingGlove (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 260161915490665601, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: m_TagString
+      value: PunchingGlove
       objectReference: {fileID: 0}
     - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
         type: 3}
@@ -1313,6 +1328,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PunchingGlove (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 260161915490665601, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: m_TagString
+      value: PunchingGlove
+      objectReference: {fileID: 0}
     - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
         type: 3}
       propertyPath: punchDelays.Array.size
@@ -1407,6 +1427,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PunchingGlove (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 260161915490665601, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: m_TagString
+      value: PunchingGlove
       objectReference: {fileID: 0}
     - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
         type: 3}
@@ -1592,6 +1617,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PunchingGlove (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 260161915490665601, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: m_TagString
+      value: PunchingGlove
+      objectReference: {fileID: 0}
     - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
         type: 3}
       propertyPath: startXPosition
@@ -1727,6 +1757,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PunchingGlove (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 260161915490665601, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: m_TagString
+      value: PunchingGlove
       objectReference: {fileID: 0}
     - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
         type: 3}
@@ -2774,6 +2809,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PunchingGlove (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 260161915490665601, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: m_TagString
+      value: PunchingGlove
+      objectReference: {fileID: 0}
     - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
         type: 3}
       propertyPath: punchDelays.Array.size
@@ -2985,6 +3025,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PunchingGlove (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 260161915490665601, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: m_TagString
+      value: PunchingGlove
       objectReference: {fileID: 0}
     - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
         type: 3}
@@ -4165,6 +4210,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PunchingGlove (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 260161915490665601, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: m_TagString
+      value: PunchingGlove
+      objectReference: {fileID: 0}
     - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
         type: 3}
       propertyPath: punchDelays.Array.size
@@ -4279,6 +4329,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PunchingGlove (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 260161915490665601, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: m_TagString
+      value: PunchingGlove
       objectReference: {fileID: 0}
     - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
         type: 3}
@@ -4595,6 +4650,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PunchingGlove (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 260161915490665601, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: m_TagString
+      value: PunchingGlove
+      objectReference: {fileID: 0}
     - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
         type: 3}
       propertyPath: startXPosition
@@ -4722,6 +4782,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PunchingGlove (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 260161915490665601, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: m_TagString
+      value: PunchingGlove
       objectReference: {fileID: 0}
     - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
         type: 3}
@@ -4941,6 +5006,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PunchingGlove (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 260161915490665601, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: m_TagString
+      value: PunchingGlove
       objectReference: {fileID: 0}
     - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
         type: 3}
@@ -11121,6 +11191,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PunchingGlove (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 260161915490665601, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: m_TagString
+      value: PunchingGlove
+      objectReference: {fileID: 0}
     - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
         type: 3}
       propertyPath: startXPosition
@@ -11717,6 +11792,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PunchingGlove (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 260161915490665601, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: m_TagString
+      value: PunchingGlove
+      objectReference: {fileID: 0}
     - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
         type: 3}
       propertyPath: punchDelays.Array.size
@@ -11925,6 +12005,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: PunchingGlove (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 260161915490665601, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: m_TagString
+      value: PunchingGlove
+      objectReference: {fileID: 0}
+    - target: {fileID: 2357682497689325330, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 4c41fc2bf7afee742bbb4a84981da3a3,
+        type: 2}
     - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
         type: 3}
       propertyPath: punchDelays.Array.size
@@ -12014,6 +12105,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PunchingGlove (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 260161915490665601, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: m_TagString
+      value: PunchingGlove
       objectReference: {fileID: 0}
     - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
         type: 3}
@@ -12138,6 +12234,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PunchingGlove (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 260161915490665601, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: m_TagString
+      value: PunchingGlove
       objectReference: {fileID: 0}
     - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
         type: 3}
@@ -12327,6 +12428,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PunchingGlove (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 260161915490665601, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: m_TagString
+      value: PunchingGlove
       objectReference: {fileID: 0}
     - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
         type: 3}
@@ -12908,6 +13014,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PunchingGlove (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 260161915490665601, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: m_TagString
+      value: PunchingGlove
       objectReference: {fileID: 0}
     - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
         type: 3}
@@ -13548,6 +13659,11 @@ PrefabInstance:
     - target: {fileID: 260161915490665601, guid: 480e549eda96b83409f53801a8ffc894,
         type: 3}
       propertyPath: m_Name
+      value: PunchingGlove
+      objectReference: {fileID: 0}
+    - target: {fileID: 260161915490665601, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: m_TagString
       value: PunchingGlove
       objectReference: {fileID: 0}
     - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
