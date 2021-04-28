@@ -1363,6 +1363,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PunchingGlove (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: startXPosition
+      value: 1.9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 480e549eda96b83409f53801a8ffc894, type: 3}
 --- !u!4 &555566273 stripped
@@ -3247,6 +3252,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 174892c9f9aff1e4fb499151df36dd62,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 174892c9f9aff1e4fb499151df36dd62, type: 3}
 --- !u!4 &931827623 stripped
@@ -3336,6 +3346,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 174892c9f9aff1e4fb499151df36dd62,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 174892c9f9aff1e4fb499151df36dd62, type: 3}
@@ -13283,7 +13298,7 @@ PrefabInstance:
     - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
         type: 3}
       propertyPath: punchDelays.Array.size
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
         type: 3}
