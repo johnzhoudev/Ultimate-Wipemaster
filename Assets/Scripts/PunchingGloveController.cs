@@ -7,6 +7,7 @@ public class PunchingGloveController : MonoBehaviour
     public Vector3 punchDirection;
     [Tooltip("Punch delay timings in seconds after fully retracted")]
     public float[] punchDelays;
+    [Range(0f, 1.9f)]
     public float startXPosition = 0;
 
     Transform boxingGloveTransform;
@@ -31,9 +32,7 @@ public class PunchingGloveController : MonoBehaviour
         retractSpeed = punchDistance / retractTime;
         if (startXPosition != 0) 
         {
-            Vector3 localPosition = boxingGloveTransform.localPosition;
-            Vector3 startPosition = boxingGloveTransform.TransformPoint(startXPosition, localPosition.y, localPosition.z);
-            boxingGloveTransform.SetPositionAndRotation(startPosition, boxingGloveTransform.rotation);
+            boxingGloveTransform.Translate(punchDirection * startXPosition, Space.Self);
         } 
         punch();
     }

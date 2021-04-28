@@ -13253,7 +13253,7 @@ PrefabInstance:
     - target: {fileID: 260161915490665600, guid: 480e549eda96b83409f53801a8ffc894,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -13.120004
+      value: -13.120006
       objectReference: {fileID: 0}
     - target: {fileID: 260161915490665600, guid: 480e549eda96b83409f53801a8ffc894,
         type: 3}
@@ -13263,7 +13263,7 @@ PrefabInstance:
     - target: {fileID: 260161915490665600, guid: 480e549eda96b83409f53801a8ffc894,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.18301259
+      value: -0.18301256
       objectReference: {fileID: 0}
     - target: {fileID: 260161915490665600, guid: 480e549eda96b83409f53801a8ffc894,
         type: 3}
@@ -13294,6 +13294,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PunchingGlove
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: startXPosition
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
         type: 3}
