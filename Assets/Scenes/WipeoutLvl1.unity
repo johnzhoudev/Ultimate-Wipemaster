@@ -387,6 +387,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PunchingGlove (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: startXPosition
+      value: 1.9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 480e549eda96b83409f53801a8ffc894, type: 3}
 --- !u!4 &32119493 stripped
@@ -1108,6 +1113,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PunchingGlove (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: punchDelays.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 480e549eda96b83409f53801a8ffc894, type: 3}
 --- !u!4 &499359158 stripped
@@ -1198,6 +1208,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: PunchingGlove (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: startXPosition
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: punchDelays.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: punchDelays.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: punchDelays.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 480e549eda96b83409f53801a8ffc894, type: 3}
 --- !u!4 &525334859 stripped
@@ -1283,6 +1313,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: PunchingGlove (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: punchDelays.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: punchDelays.Array.data[0]
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: punchDelays.Array.data[1]
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 480e549eda96b83409f53801a8ffc894, type: 3}
 --- !u!4 &533331020 stripped
@@ -1366,7 +1411,17 @@ PrefabInstance:
     - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
         type: 3}
       propertyPath: startXPosition
-      value: 1.9
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: punchDelays.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: punchDelays.Array.data[0]
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 480e549eda96b83409f53801a8ffc894, type: 3}
@@ -1537,6 +1592,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: PunchingGlove (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: startXPosition
+      value: 0.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: punchDelays.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: punchDelays.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 480e549eda96b83409f53801a8ffc894, type: 3}
 --- !u!4 &639851147 stripped
@@ -1657,6 +1727,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PunchingGlove (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: punchDelays.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: punchDelays.Array.data[0]
+      value: 0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 480e549eda96b83409f53801a8ffc894, type: 3}
@@ -2694,6 +2774,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: PunchingGlove (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: punchDelays.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: punchDelays.Array.data[1]
+      value: 0.75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 480e549eda96b83409f53801a8ffc894, type: 3}
 --- !u!4 &820203903 stripped
@@ -2895,6 +2985,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PunchingGlove (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: startXPosition
+      value: 0.96
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 480e549eda96b83409f53801a8ffc894, type: 3}
@@ -4070,6 +4165,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: PunchingGlove (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: punchDelays.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: punchDelays.Array.data[0]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: punchDelays.Array.data[1]
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: punchDelays.Array.data[2]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: punchDelays.Array.data[3]
+      value: 1.25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 480e549eda96b83409f53801a8ffc894, type: 3}
 --- !u!4 &1124164200 stripped
@@ -4159,6 +4279,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PunchingGlove (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: punchDelays.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: punchDelays.Array.data[1]
+      value: 1.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 480e549eda96b83409f53801a8ffc894, type: 3}
@@ -4465,6 +4595,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PunchingGlove (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: startXPosition
+      value: 1.47
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 480e549eda96b83409f53801a8ffc894, type: 3}
 --- !u!4 &1250085885 stripped
@@ -4587,6 +4722,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PunchingGlove (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: punchDelays.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: punchDelays.Array.data[3]
+      value: 1.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 480e549eda96b83409f53801a8ffc894, type: 3}
@@ -4796,6 +4941,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PunchingGlove (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: startXPosition
+      value: 1.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 480e549eda96b83409f53801a8ffc894, type: 3}
@@ -10971,6 +11121,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: PunchingGlove (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: startXPosition
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: punchDelays.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: punchDelays.Array.data[0]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: punchDelays.Array.data[1]
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: punchDelays.Array.data[2]
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: punchDelays.Array.data[3]
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: punchDelays.Array.data[4]
+      value: 0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 480e549eda96b83409f53801a8ffc894, type: 3}
 --- !u!4 &1474595137 stripped
@@ -11532,6 +11717,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: PunchingGlove (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: punchDelays.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: punchDelays.Array.data[0]
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 480e549eda96b83409f53801a8ffc894, type: 3}
 --- !u!4 &1620584060 stripped
@@ -11730,6 +11925,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: PunchingGlove (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: punchDelays.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: punchDelays.Array.data[0]
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 480e549eda96b83409f53801a8ffc894, type: 3}
 --- !u!4 &1626984695 stripped
@@ -11809,6 +12014,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PunchingGlove (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: startXPosition
+      value: 1.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: punchDelays.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: punchDelays.Array.data[4]
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: punchDelays.Array.data[9]
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 480e549eda96b83409f53801a8ffc894, type: 3}
@@ -11913,6 +12138,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PunchingGlove (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: startXPosition
+      value: 0.43
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 480e549eda96b83409f53801a8ffc894, type: 3}
@@ -12097,6 +12327,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PunchingGlove (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: startXPosition
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: punchDelays.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: punchDelays.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: punchDelays.Array.data[1]
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 480e549eda96b83409f53801a8ffc894, type: 3}
@@ -12658,6 +12908,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PunchingGlove (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
+        type: 3}
+      propertyPath: startXPosition
+      value: 0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 480e549eda96b83409f53801a8ffc894, type: 3}
@@ -13303,12 +13558,12 @@ PrefabInstance:
     - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
         type: 3}
       propertyPath: punchDelays.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
         type: 3}
       propertyPath: punchDelays.Array.data[0]
-      value: 1
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 2938519130278264218, guid: 480e549eda96b83409f53801a8ffc894,
         type: 3}

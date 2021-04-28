@@ -33,8 +33,11 @@ public class PunchingGloveController : MonoBehaviour
         if (startXPosition != 0) 
         {
             boxingGloveTransform.Translate(punchDirection * startXPosition, Space.Self);
+            retract();
         } 
-        punch();
+        else {
+            punch();
+        }
     }
 
     void Update()
