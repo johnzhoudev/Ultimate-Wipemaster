@@ -57,7 +57,8 @@ public class PunchingGloveController : MonoBehaviour
             isRetracting = false;
             timeElapsed = 0;
         }
-        else if (punchDelays.Length != 0 && timeElapsed > punchDelays[punchDelayIndex % punchDelays.Length]) {
+        else if (punchDelays.Length == 0) { punch(); }
+        else if (timeElapsed > punchDelays[punchDelayIndex % punchDelays.Length]) {
             punch();
             ++punchDelayIndex;
         }
