@@ -5,6 +5,8 @@ using UnityEngine;
 public class PunchingGloveController : MonoBehaviour
 {
     public Vector3 punchDirection;
+    [Tooltip("Punch delay timings in seconds after fully retracted")]
+    public float[] punchDelays;
 
     Transform boxingGloveTransform;
     float punchDistance = 1.9f;
@@ -13,6 +15,10 @@ public class PunchingGloveController : MonoBehaviour
     float punchSpeed;
     float retractTime = 1f;
     float retractSpeed;
+
+    int punchDelayIndex = 0;
+    float timeElapsed = 0f;
+
 
     bool isPunching = false;
     bool isRetracting = false;
@@ -27,6 +33,9 @@ public class PunchingGloveController : MonoBehaviour
 
     void Update()
     {
+        // Update time elapsed
+        timeElapsed += Time.deltaTime;
+
         // Handle Punching
         if (isPunching && isWithinPunchDistance())
         {
@@ -46,7 +55,11 @@ public class PunchingGloveController : MonoBehaviour
         else if (isRetracting && !isWithinRetractDistance())
         {
             isRetracting = false;
+            timeElapsed = 0;
+        }
+        else if (punchDelays.Length != 0 && timeElapsed > punchDelays[punchDelayIndex % punchDelays.Length]) {
             punch();
+            ++punchDelayIndex;
         }
     }
 
@@ -60,12 +73,12 @@ public class PunchingGloveController : MonoBehaviour
         return boxingGloveTransform.localPosition.x > 0;
     }
 
-    public void punch()
+    void punch()
     {
         isPunching = true;
     } 
 
-    public void retract()
+    void retract()
     {
         isRetracting = true;
     }
