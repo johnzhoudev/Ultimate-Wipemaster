@@ -26,9 +26,11 @@ public class RigidbodyController : MonoBehaviour
 
     bool isMovementEnabled;
     LaunchStatus launchStatus;
+    Vector3 punchingGloveLaunchDirection = new Vector3(0, 0, -1);
 
     const string ROTATING_BAR_TAG = "RotatingBar";
     const string GROUND_TAG = "Ground";
+    const string PUNCHING_GLOVE_TAG = "PunchingGlove";
 
     void FixedUpdate()
     {
@@ -90,6 +92,7 @@ public class RigidbodyController : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+        Vector3 normalDirection;
         switch(collision.gameObject.tag)
         {
             case GROUND_TAG:
@@ -100,8 +103,13 @@ public class RigidbodyController : MonoBehaviour
             case ROTATING_BAR_TAG:
                 if (collision.contactCount == 0) { return; }
                 launchStatus = LaunchStatus.BeingLaunched;
-                Vector3 normalDirection = collision.GetContact(0).normal;
+                normalDirection = collision.GetContact(0).normal;
                 launchPlayer(normalDirection);
+                break;
+            case PUNCHING_GLOVE_TAG:
+                if (collision.contactCount == 0) { return; }
+                launchStatus = LaunchStatus.BeingLaunched;
+                launchPlayer(punchingGloveLaunchDirection);
                 break;
         }
     }

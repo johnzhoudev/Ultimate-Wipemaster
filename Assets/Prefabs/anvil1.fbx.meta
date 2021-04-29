@@ -1,14 +1,12 @@
 fileFormatVersion: 2
-guid: 8dc1363de3d71af4382c5f77a00430b6
+guid: c7b7f49f841ecb0469f781dc006ae1d5
 ModelImporter:
   serializedVersion: 19301
-  internalIDToNameTable: []
-  externalObjects:
+  internalIDToNameTable:
   - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.002
-    second: {fileID: 2100000, guid: 748820732f703c8478d5ac4bf01786cf, type: 2}
+      74: -3569080550940823855
+    second: Anvil|Shader NodetreeAction
+  externalObjects: {}
   materials:
     materialImportMode: 1
     materialName: 0
