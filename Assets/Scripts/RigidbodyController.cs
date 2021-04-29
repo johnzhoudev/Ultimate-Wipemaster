@@ -26,6 +26,7 @@ public class RigidbodyController : MonoBehaviour
 
     bool isMovementEnabled;
     LaunchStatus launchStatus;
+    Vector3 punchingGloveLaunchDirection = new Vector3(0, 0, -1);
 
     const string ROTATING_BAR_TAG = "RotatingBar";
     const string GROUND_TAG = "Ground";
@@ -107,10 +108,8 @@ public class RigidbodyController : MonoBehaviour
                 break;
             case PUNCHING_GLOVE_TAG:
                 if (collision.contactCount == 0) { return; }
-                normalDirection = collision.GetContact(0).normal;
-                Debug.Log(normalDirection);
                 launchStatus = LaunchStatus.BeingLaunched;
-                launchPlayer(normalDirection);
+                launchPlayer(punchingGloveLaunchDirection);
                 break;
         }
     }
