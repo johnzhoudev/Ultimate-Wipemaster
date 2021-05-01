@@ -3340,6 +3340,7 @@ MonoBehaviour:
   jumpDistance: 3
   horizontalLaunchSpeed: 30
   verticalLaunchSpeed: 30
+  ballLaunchSpeed: 40
 --- !u!136 &928569571
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -11958,6 +11959,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 9000864836588242575, guid: 5ab78da4c43d40e439f37642d3c8cf2c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ball
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ab78da4c43d40e439f37642d3c8cf2c, type: 3}
 --- !u!4 &1568797483 stripped
@@ -13745,6 +13751,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 9000864836588242575, guid: 5ab78da4c43d40e439f37642d3c8cf2c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ball
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ab78da4c43d40e439f37642d3c8cf2c, type: 3}
 --- !u!4 &2003730520 stripped
@@ -14507,6 +14518,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 9000864836588242575, guid: 5ab78da4c43d40e439f37642d3c8cf2c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ball
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ab78da4c43d40e439f37642d3c8cf2c, type: 3}

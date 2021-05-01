@@ -23,6 +23,7 @@ public class RigidbodyController : MonoBehaviour
     public float jumpDistance;
     public float horizontalLaunchSpeed;
     public float verticalLaunchSpeed;
+    public float ballLaunchSpeed;
 
     bool isMovementEnabled;
     LaunchStatus launchStatus;
@@ -31,6 +32,7 @@ public class RigidbodyController : MonoBehaviour
     const string ROTATING_BAR_TAG = "RotatingBar";
     const string GROUND_TAG = "Ground";
     const string PUNCHING_GLOVE_TAG = "PunchingGlove";
+    const string BALL_TAG = "Ball";
 
     void FixedUpdate()
     {
@@ -111,6 +113,10 @@ public class RigidbodyController : MonoBehaviour
                 launchStatus = LaunchStatus.BeingLaunched;
                 launchPlayer(punchingGloveLaunchDirection);
                 break;
+            case BALL_TAG:
+                if (collision.contactCount == 0) { return; }
+                launchPlayer(collision.GetContact(0).normal, ballLaunchSpeed);
+                break;
         }
     }
 
@@ -118,6 +124,11 @@ public class RigidbodyController : MonoBehaviour
     {
         playerRigidbody.AddForce(flatDirection.normalized * horizontalLaunchSpeed + 
                                 Vector3.up * verticalLaunchSpeed, ForceMode.VelocityChange);
+    }
+
+    void launchPlayer(Vector3 direction, float launchSpeed)
+    {
+        playerRigidbody.AddForce(direction * launchSpeed, ForceMode.VelocityChange);
     }
 
     public void disableMovement() { isMovementEnabled = false; }
