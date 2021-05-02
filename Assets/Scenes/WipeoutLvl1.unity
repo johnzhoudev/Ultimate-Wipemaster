@@ -3334,15 +3334,16 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 768
   speed: 12
-  launchedSpeed: 2
-  ballLaunchSpeed: 4
+  launchedSpeed: 125
+  ballLaunchSpeed: 150
   gravity: -50
   groundCheckRadius: 0.2
   jumpDistance: 3
   horizontalLaunchSpeed: 30
   verticalLaunchSpeed: 30
-  ballHorizontalLaunchSpeed: 5
+  ballHorizontalLaunchSpeed: 0
   ballVerticalLaunchSpeed: 40
+  ballDragSpeed: 500
 --- !u!136 &928569571
 CapsuleCollider:
   m_ObjectHideFlags: 0
