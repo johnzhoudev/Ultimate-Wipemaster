@@ -115,7 +115,11 @@ public class RigidbodyController : MonoBehaviour
                 break;
             case BALL_TAG:
                 if (collision.contactCount == 0) { return; }
-                launchPlayer(collision.GetContact(0).normal, ballLaunchSpeed);
+                // generate random horizontal direction to launch player in, magnitude 1
+                float angle = Random.value * Mathf.PI * 2;
+                Vector3 horizontalDirection = new Vector3(Mathf.Sin(angle), Mathf.Cos(angle));
+                launchStatus = LaunchStatus.BeingLaunched;
+                launchPlayer(collision.GetContact(0).normal + horizontalDirection, ballLaunchSpeed);
                 break;
         }
     }
