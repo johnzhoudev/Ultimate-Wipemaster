@@ -4,7 +4,9 @@ public enum LaunchStatus
 {
     Normal,
     BeingLaunched,
-    Launched
+    Launched,
+    BeingBallLaunched,
+    BallLaunched
 }
 
 public class RigidbodyController : MonoBehaviour
@@ -18,9 +20,12 @@ public class RigidbodyController : MonoBehaviour
     public LayerMask environmentLayers;
     public float speed;
     public float launchedSpeed;
+    public float ballLaunchSpeed;
+
     public float gravity = -9.81f;
     public float groundCheckRadius;
     public float jumpDistance;
+
     public float horizontalLaunchSpeed;
     public float verticalLaunchSpeed;
     public float ballHorizontalLaunchSpeed;
@@ -47,12 +52,17 @@ public class RigidbodyController : MonoBehaviour
 
         // Handle launch statuses
         if (launchStatus == LaunchStatus.BeingLaunched && !isGrounded) { launchStatus = LaunchStatus.Launched; }
-        else if (launchStatus == LaunchStatus.Launched && isGrounded) { launchStatus = LaunchStatus.Normal; }
+        else if (launchStatus == LaunchStatus.BeingBallLaunched && !isGrounded) { launchStatus = LaunchStatus.BallLaunched; }
+        else if ((launchStatus == LaunchStatus.Launched || launchStatus == LaunchStatus.BallLaunched) && 
+                 isGrounded) { launchStatus = LaunchStatus.Normal; }
 
         // Add horizontal movements
         if (launchStatus == LaunchStatus.Launched)
         {
             playerRigidbody.AddRelativeForce(targetVelocity * launchedSpeed, ForceMode.Acceleration);
+        } else if (launchStatus == LaunchStatus.BallLaunched)
+        {
+            playerRigidbody.AddRelativeForce(targetVelocity * ballLaunchSpeed, ForceMode.Acceleration);
         } else
         {
             playerRigidbody.AddRelativeForce(targetVelocity - currentVelocity, ForceMode.VelocityChange);
@@ -116,7 +126,7 @@ public class RigidbodyController : MonoBehaviour
                 break;
             case BALL_TAG:
                 if (collision.contactCount == 0) { return; }
-                launchStatus = LaunchStatus.BeingLaunched;
+                launchStatus = LaunchStatus.BeingBallLaunched;
                 ballLaunchPlayer();
                 break;
         }

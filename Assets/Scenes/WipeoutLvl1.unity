@@ -3335,12 +3335,13 @@ MonoBehaviour:
     m_Bits: 768
   speed: 12
   launchedSpeed: 2
+  ballLaunchSpeed: 4
   gravity: -50
   groundCheckRadius: 0.2
   jumpDistance: 3
   horizontalLaunchSpeed: 30
   verticalLaunchSpeed: 30
-  ballHorizontalLaunchSpeed: 10
+  ballHorizontalLaunchSpeed: 5
   ballVerticalLaunchSpeed: 40
 --- !u!136 &928569571
 CapsuleCollider:
