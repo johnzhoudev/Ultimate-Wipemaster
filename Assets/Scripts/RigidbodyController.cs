@@ -23,7 +23,8 @@ public class RigidbodyController : MonoBehaviour
     public float jumpDistance;
     public float horizontalLaunchSpeed;
     public float verticalLaunchSpeed;
-    public float ballLaunchSpeed;
+    public float ballHorizontalLaunchSpeed;
+    public float ballVerticalLaunchSpeed;
 
     bool isMovementEnabled;
     LaunchStatus launchStatus;
@@ -115,11 +116,8 @@ public class RigidbodyController : MonoBehaviour
                 break;
             case BALL_TAG:
                 if (collision.contactCount == 0) { return; }
-                // generate random horizontal direction to launch player in, magnitude 1
-                float angle = Random.value * Mathf.PI * 2;
-                Vector3 horizontalDirection = new Vector3(Mathf.Sin(angle), Mathf.Cos(angle));
                 launchStatus = LaunchStatus.BeingLaunched;
-                launchPlayer(collision.GetContact(0).normal + horizontalDirection, ballLaunchSpeed);
+                ballLaunchPlayer();
                 break;
         }
     }
@@ -130,9 +128,13 @@ public class RigidbodyController : MonoBehaviour
                                 Vector3.up * verticalLaunchSpeed, ForceMode.VelocityChange);
     }
 
-    void launchPlayer(Vector3 direction, float launchSpeed)
+    void ballLaunchPlayer()
     {
-        playerRigidbody.AddForce(direction.normalized * launchSpeed, ForceMode.VelocityChange);
+        // generate random horizontal direction to launch player in, magnitude 1
+        float angle = Random.value * Mathf.PI * 2;
+        Vector3 horizontalDirection = new Vector3(Mathf.Sin(angle), Mathf.Cos(angle));
+        playerRigidbody.AddForce(horizontalDirection .normalized * ballHorizontalLaunchSpeed +
+            Vector3.up * ballVerticalLaunchSpeed, ForceMode.VelocityChange);
     }
 
     public void disableMovement() { isMovementEnabled = false; }

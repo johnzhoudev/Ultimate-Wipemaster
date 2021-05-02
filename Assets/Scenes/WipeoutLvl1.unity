@@ -3340,7 +3340,8 @@ MonoBehaviour:
   jumpDistance: 3
   horizontalLaunchSpeed: 30
   verticalLaunchSpeed: 30
-  ballLaunchSpeed: 40
+  ballHorizontalLaunchSpeed: 10
+  ballVerticalLaunchSpeed: 40
 --- !u!136 &928569571
 CapsuleCollider:
   m_ObjectHideFlags: 0
