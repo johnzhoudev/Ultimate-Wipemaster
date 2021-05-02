@@ -30,7 +30,8 @@ public class RigidbodyController : MonoBehaviour
     public float verticalLaunchSpeed;
     public float ballHorizontalLaunchSpeed;
     public float ballVerticalLaunchSpeed;
-    public float ballDragSpeed;
+    public float ballHorizontalDragSpeed;
+    public float maxBallHorizontalLaunchedSpeed; 
 
     bool isMovementEnabled;
     LaunchStatus launchStatus;
@@ -63,12 +64,16 @@ public class RigidbodyController : MonoBehaviour
             playerRigidbody.AddRelativeForce(targetVelocity * launchedSpeed * Time.deltaTime, ForceMode.Acceleration);
         } else if (launchStatus == LaunchStatus.BallLaunched)
         {
-            Vector3 dragVelocityChange = currentVelocity.normalized * -1f * ballDragSpeed * Time.deltaTime;
+            Debug.Log(currentVelocity.magnitude);
+            Vector3 dragVelocityChange = currentVelocity.normalized * -1f * ballHorizontalDragSpeed * Time.deltaTime;
             if (currentVelocity.magnitude > dragVelocityChange.magnitude)
             {
                 playerRigidbody.AddRelativeForce(dragVelocityChange * Time.deltaTime, ForceMode.VelocityChange);
             }
-            playerRigidbody.AddRelativeForce(targetVelocity * ballLaunchSpeed * Time.deltaTime, ForceMode.Acceleration);
+            if (currentVelocity.magnitude < maxBallHorizontalLaunchedSpeed) 
+            {
+                playerRigidbody.AddRelativeForce(targetVelocity * ballLaunchSpeed * Time.deltaTime, ForceMode.Acceleration);
+            }
         } else
         {
             playerRigidbody.AddRelativeForce(targetVelocity - currentVelocity, ForceMode.VelocityChange);

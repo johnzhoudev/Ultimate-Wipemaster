@@ -3343,7 +3343,8 @@ MonoBehaviour:
   verticalLaunchSpeed: 30
   ballHorizontalLaunchSpeed: 0
   ballVerticalLaunchSpeed: 40
-  ballDragSpeed: 500
+  ballHorizontalDragSpeed: 500
+  maxBallHorizontalLaunchedSpeed: 20
 --- !u!136 &928569571
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -14452,7 +14453,7 @@ PrefabInstance:
     - target: {fileID: 8091112981860215412, guid: 9d7fba6de9151f64885067bd78e6635e,
         type: 3}
       propertyPath: m_Name
-      value: WidePad1
+      value: LandingPad
       objectReference: {fileID: 0}
     - target: {fileID: 8091112981860215412, guid: 9d7fba6de9151f64885067bd78e6635e,
         type: 3}
