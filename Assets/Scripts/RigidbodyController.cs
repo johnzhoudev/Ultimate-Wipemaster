@@ -132,7 +132,7 @@ public class RigidbodyController : MonoBehaviour
 
     void launchPlayer(Vector3 direction, float launchSpeed)
     {
-        playerRigidbody.AddForce(direction * launchSpeed, ForceMode.VelocityChange);
+        playerRigidbody.AddForce(direction.normalized * launchSpeed, ForceMode.VelocityChange);
     }
 
     public void disableMovement() { isMovementEnabled = false; }
