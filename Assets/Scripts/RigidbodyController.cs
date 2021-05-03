@@ -126,7 +126,6 @@ public class RigidbodyController : MonoBehaviour
             case GROUND_TAG:
                 //GameObject.Find("GameManager").GetComponent<GameManager>().RestartLevel(Checkpoint.Start);
                 gameManager.onWipeout();
-                gameManager.RestartLevel(Checkpoint.Start);
                 break;
             case ROTATING_BAR_TAG:
                 if (collision.contactCount == 0) { return; }

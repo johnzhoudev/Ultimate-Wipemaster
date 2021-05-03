@@ -6,6 +6,13 @@ public enum Checkpoint
     Start = 0,
 }
 
+public enum ScreenState
+{
+    Normal,
+    WipeoutScreen,
+    EndGameScreen
+}
+
 public class GameManager : MonoBehaviour
 {
     const float WIPEOUT_SCREEN_JUMP_DELAY = 0.2f;
@@ -26,8 +33,7 @@ public class GameManager : MonoBehaviour
     // Sound Related Imports
     public SoundManager soundManager;
 
-    bool isWipeoutScreenEnabled;
-    bool isEndGameScreenEnabled;
+    ScreenState screenState = ScreenState.Normal;
 
     private void Start()
     {
@@ -36,22 +42,31 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (isWipeoutScreenEnabled && Input.GetButton("Jump")) { StartCoroutine(wipeoutEnd()); }
         if (Input.GetKeyDown(KeyCode.Escape)) { Application.Quit(); }
 
-        bool isButtonInView = playerView.isButtonTriggerInView();
-        if (!uiManager.isButtonTextActive() && isButtonInView) 
-        { 
-                uiManager.openButtonText(); 
-        }
-        else if (uiManager.isButtonTextActive() && !isButtonInView)
+        switch(screenState)
         {
-            uiManager.closeButtonText();
-        }
-
-        if (isButtonInView && Input.GetButtonDown("Interact"))
-        {
-            endGame();
+            case ScreenState.WipeoutScreen:
+                if (Input.GetButton("Jump")) { StartCoroutine(wipeoutEnd()); }
+                break;
+            case ScreenState.EndGameScreen:
+                if (Input.GetButtonDown("Jump")) { StartCoroutine(endGameScreenEnd()); }
+                break;
+            case ScreenState.Normal:
+                bool isButtonInView = playerView.isButtonTriggerInView();
+                if (!uiManager.isButtonTextActive() && isButtonInView) 
+                { 
+                        uiManager.openButtonText(); 
+                }
+                else if (uiManager.isButtonTextActive() && !isButtonInView)
+                {
+                    uiManager.closeButtonText();
+                }
+                if (isButtonInView && Input.GetButtonDown("Interact"))
+                {
+                    endGame();
+                }
+                break;
         }
     }
 
@@ -60,15 +75,17 @@ public class GameManager : MonoBehaviour
         soundManager.playSound("AirHorn");
         uiManager.openEndGameScreen();
         disableMovement();
+        screenState = ScreenState.EndGameScreen;
     }
     public void onWipeout()
     {
         if (developmentMode) { return; }
+        RestartLevel(Checkpoint.Start);
         soundManager.playSound("Splash");
         soundManager.playSound("AirHorn");
         uiManager.openWipeoutScreen();
         disableMovement();
-        isWipeoutScreenEnabled = true;
+        screenState = ScreenState.WipeoutScreen;
     }
 
     IEnumerator wipeoutEnd()
@@ -76,7 +93,19 @@ public class GameManager : MonoBehaviour
         if (developmentMode) { yield break; }
         soundManager.stopSound("AirHorn");
         uiManager.closeWipeoutScreen();
-        isWipeoutScreenEnabled = false;
+        screenState = ScreenState.Normal;
+        playerMouseLook.enableMovement();
+
+        yield return new WaitForSeconds(WIPEOUT_SCREEN_JUMP_DELAY);
+
+        playerController.enableMovement();
+    }
+    IEnumerator endGameScreenEnd()
+    {
+        RestartLevel(Checkpoint.Start);
+        soundManager.stopSound("AirHorn");
+        uiManager.closeEndGameScreen();
+        screenState = ScreenState.Normal;
         playerMouseLook.enableMovement();
 
         yield return new WaitForSeconds(WIPEOUT_SCREEN_JUMP_DELAY);
@@ -86,7 +115,7 @@ public class GameManager : MonoBehaviour
 
     public void RestartLevel(Checkpoint checkpoint)
     {
-        if (developmentMode) { return; }
+        //if (developmentMode) { return; }
         playerController.teleport(startLocation, startRotation);
         playerMouseLook.setVerticalCameraRotation(CAMERA_STRAIGHT_AHEAD);
     }
