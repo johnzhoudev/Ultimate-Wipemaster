@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     public SoundManager soundManager;
 
     bool isWipeoutScreenEnabled;
+    bool isEndGameScreenEnabled;
 
     private void Start()
     {
@@ -50,10 +51,16 @@ public class GameManager : MonoBehaviour
 
         if (isButtonInView && Input.GetButtonDown("Interact"))
         {
-            Debug.Log("Beat the Game!");
+            endGame();
         }
     }
 
+    public void endGame()
+    {
+        soundManager.playSound("AirHorn");
+        uiManager.openEndGameScreen();
+        disableMovement();
+    }
     public void onWipeout()
     {
         if (developmentMode) { return; }
