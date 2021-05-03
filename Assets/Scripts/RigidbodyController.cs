@@ -62,19 +62,23 @@ public class RigidbodyController : MonoBehaviour
         if (launchStatus == LaunchStatus.Launched)
         {
             playerRigidbody.AddRelativeForce(targetVelocity * launchedSpeed * Time.deltaTime, ForceMode.Acceleration);
-        } else if (launchStatus == LaunchStatus.BallLaunched)
+        } 
+        else if (launchStatus == LaunchStatus.BallLaunched)
         {
-            Debug.Log(currentVelocity.magnitude);
+            // Add drag
             Vector3 dragVelocityChange = currentVelocity.normalized * -1f * ballHorizontalDragSpeed * Time.deltaTime;
             if (currentVelocity.magnitude > dragVelocityChange.magnitude)
             {
                 playerRigidbody.AddRelativeForce(dragVelocityChange * Time.deltaTime, ForceMode.VelocityChange);
             }
+
+            // Apply force if speed is less than max speed
             if (currentVelocity.magnitude < maxBallHorizontalLaunchedSpeed) 
             {
                 playerRigidbody.AddRelativeForce(targetVelocity * ballLaunchSpeed * Time.deltaTime, ForceMode.Acceleration);
             }
-        } else
+        }
+        else
         {
             playerRigidbody.AddRelativeForce(targetVelocity - currentVelocity, ForceMode.VelocityChange);
         }
