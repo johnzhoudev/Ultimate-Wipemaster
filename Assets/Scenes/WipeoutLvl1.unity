@@ -3905,7 +3905,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonTrigger: {fileID: 1186928116}
   cameraTransform: {fileID: 963194228}
-  maxViewDistance: 20
+  maxViewDistance: 10
 --- !u!1001 &991841402
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4653,10 +4653,10 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1186928114}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.1, z: 0.1}
+  m_Size: {x: 0.5, y: 0.5, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1195789951
 PrefabInstance:
