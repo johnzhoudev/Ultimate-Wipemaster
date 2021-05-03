@@ -37,7 +37,15 @@ public class GameManager : MonoBehaviour
     {
         if (isWipeoutScreenEnabled && Input.GetButton("Jump")) { StartCoroutine(wipeoutEnd()); }
         if (Input.GetKeyDown(KeyCode.Escape)) { Application.Quit(); }
-        if (playerView.isButtonTriggerInView() && Input.GetButton("Fire1")) { uiManager.openButtonText(); }
+
+        if (!uiManager.isButtonTextActive() && playerView.isButtonTriggerInView()) 
+        { 
+                uiManager.openButtonText(); 
+        }
+        else if (uiManager.isButtonTextActive() && !playerView.isButtonTriggerInView())
+        {
+            uiManager.closeButtonText();
+        }
     }
 
     public void onWipeout()

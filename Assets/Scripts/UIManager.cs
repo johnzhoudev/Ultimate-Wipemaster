@@ -9,6 +9,8 @@ public class UIManager : MonoBehaviour
 
     public void closeWipeoutScreen() { wipeoutScreen.SetActive(false); }
 
+    public bool isButtonTextActive() { return buttonText.activeInHierarchy;  }
+
     public void openButtonText() { buttonText.SetActive(true); }
 
     public void closeButtonText() { buttonText.SetActive(false); }
