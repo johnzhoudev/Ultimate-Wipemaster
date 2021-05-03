@@ -689,7 +689,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &315990863
 RectTransform:
   m_ObjectHideFlags: 0
@@ -994,7 +994,6 @@ GameObject:
   m_Component:
   - component: {fileID: 426807262}
   - component: {fileID: 426807263}
-  - component: {fileID: 426807264}
   m_Layer: 0
   m_Name: UiManager
   m_TagString: Untagged
@@ -1028,20 +1027,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ea7a36380c5eea4b968623d2a810786, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wipeoutScreenManager: {fileID: 0}
---- !u!114 &426807264
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 426807261}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5b5b7a0e22e2bc4484ddf61b566a3d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   wipeoutScreen: {fileID: 2048585826}
+  buttonText: {fileID: 315990862}
 --- !u!1 &494885292
 GameObject:
   m_ObjectHideFlags: 0
