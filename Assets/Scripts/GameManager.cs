@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
 
     public RigidbodyController playerController;
     public MouseLook playerMouseLook;
+    public PlayerView playerView;
     public Vector3 startLocation;
     public Vector3 startRotation;
     public float startCameraVerticalRotation;
@@ -36,6 +37,7 @@ public class GameManager : MonoBehaviour
     {
         if (isWipeoutScreenEnabled && Input.GetButton("Jump")) { StartCoroutine(wipeoutEnd()); }
         if (Input.GetKeyDown(KeyCode.Escape)) { Application.Quit(); }
+        if (playerView.isButtonTriggerInView()) { Debug.Log("Button trigger in view"); }
     }
 
     public void onWipeout()
