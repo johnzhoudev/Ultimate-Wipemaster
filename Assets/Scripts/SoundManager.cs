@@ -20,6 +20,7 @@ public class SoundManager : MonoBehaviour
     Dictionary<string, AudioSource> audioDictionary = new Dictionary<string, AudioSource>();
 
     bool isMusicPlaying = false;
+    bool isMusicPaused = false;
     int _musicPosition;
 
     public int MusicPosition
@@ -48,13 +49,30 @@ public class SoundManager : MonoBehaviour
     public void startMusic()
     {
         isMusicPlaying = true;
-        music[MusicPosition].audio.UnPause();
+        if (isMusicPaused)
+        {
+            music[MusicPosition].audio.UnPause();
+        }
+        else
+        {
+            music[MusicPosition].audio.Play();
+        }
+        isMusicPaused = false;
     }
 
     public void stopMusic()
     {
         isMusicPlaying = false;
         music[MusicPosition].audio.Pause();
+        isMusicPaused = true;
+    }
+
+    public void nextSong()
+    {
+        music[MusicPosition].audio.Stop();
+        incrementMusicPosition();
+        music[MusicPosition].audio.Play();
+        isMusicPaused = false;
     }
 
     void loadAudioSources()

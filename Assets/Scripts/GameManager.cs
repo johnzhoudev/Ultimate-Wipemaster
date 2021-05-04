@@ -72,6 +72,7 @@ public class GameManager : MonoBehaviour
     }
     public void onWipeout()
     {
+        soundManager.nextSong();
         if (developmentMode) { return; }
         RestartLevel(Checkpoint.Start);
         soundManager.playSound("Splash");

@@ -2813,22 +2813,22 @@ MonoBehaviour:
     identifier: AirHorn
     volume: 0.274
   music:
-  - audio: {fileID: 809294306}
-    identifier: Flying Through the Valley
-    volume: 1
   - audio: {fileID: 809294305}
     identifier: motyw-f1-lepszy-1939
-    volume: 1
+    volume: 0.5
   - audio: {fileID: 809294304}
     identifier: organ boogie
-    volume: 1
+    volume: 0.5
   - audio: {fileID: 809294303}
     identifier: short action
+    volume: 0.5
+  - audio: {fileID: 809294306}
+    identifier: Flying Thru Valley
     volume: 1
   - audio: {fileID: 809294302}
     identifier: 2 Grands Piano
-    volume: 1
-  nextSongDelay: 3
+    volume: 0.5
+  nextSongDelay: 5
 --- !u!82 &809294300
 AudioSource:
   m_ObjectHideFlags: 0
