@@ -9,7 +9,7 @@ public enum Checkpoint
 
 public class GameManager : MonoBehaviour
 {
-    const float WIPEOUT_SCREEN_JUMP_DELAY = 0.2f;
+    const float WIPEOUT_SCREEN_JUMP_DELAY = 0.1f;
     const float CAMERA_STRAIGHT_AHEAD = 0f;
 
     public RigidbodyController playerController;
