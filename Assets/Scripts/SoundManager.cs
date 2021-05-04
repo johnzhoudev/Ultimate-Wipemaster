@@ -14,19 +14,59 @@ public class SoundManager : MonoBehaviour
     }
 
     public AudioSourceAndIdentifier[] audioSources;
+    public AudioSourceAndIdentifier[] music;
+    public float nextSongDelay;
+
     Dictionary<string, AudioSource> audioDictionary = new Dictionary<string, AudioSource>();
 
-    private void Start()
+    bool isMusicPlaying = false;
+    int _musicPosition;
+
+    public int MusicPosition
     {
-        loadAudioSources();
+        get { return _musicPosition % music.Length; }
     }
 
-    private void loadAudioSources()
+    void incrementMusicPosition() { ++_musicPosition; }
+
+    void Start()
+    {
+        loadAudioSources();
+        if (music.Length != 0) { _musicPosition = 0; }
+    }
+
+    void Update()
+    {
+        // if music is still playing but has finished current song, increment and start next
+        if (isMusicPlaying && !music[MusicPosition].audio.isPlaying)
+        {
+            incrementMusicPosition();
+            music[MusicPosition].audio.PlayDelayed(nextSongDelay);
+        }
+    }
+
+    public void startMusic()
+    {
+        isMusicPlaying = true;
+        music[MusicPosition].audio.UnPause();
+    }
+
+    public void stopMusic()
+    {
+        isMusicPlaying = false;
+        music[MusicPosition].audio.Pause();
+    }
+
+    void loadAudioSources()
     {
         for (int i = 0; i < audioSources.Length; ++i)
         {
             audioSources[i].audio.volume = audioSources[i].volume;
             audioDictionary.Add(audioSources[i].identifier, audioSources[i].audio);
+        }
+        for (int i = 0; i < music.Length; ++i)
+        {
+            music[i].audio.volume = music[i].volume;
         }
     }
 
