@@ -72,8 +72,8 @@ public class GameManager : MonoBehaviour
     }
     public void onWipeout()
     {
-        soundManager.nextSong();
         if (developmentMode) { return; }
+        soundManager.stopMusic();
         RestartLevel(Checkpoint.Start);
         soundManager.playSound("Splash");
         soundManager.playSound("AirHorn");
@@ -84,6 +84,7 @@ public class GameManager : MonoBehaviour
     IEnumerator wipeoutEnd()
     {
         if (developmentMode) { yield break; }
+        soundManager.startMusic();
         soundManager.stopSound("AirHorn");
         uiManager.closeWipeoutScreen();
         playerMouseLook.enableMovement();
