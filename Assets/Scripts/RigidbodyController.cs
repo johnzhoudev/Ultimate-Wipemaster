@@ -161,7 +161,11 @@ public class RigidbodyController : MonoBehaviour
             Vector3.up * ballVerticalLaunchSpeed, ForceMode.VelocityChange);
     }
 
-    public void disableMovement() { isMovementEnabled = false; }
+    public void disableMovement()
+    {
+        isMovementEnabled = false;
+        playerRigidbody.velocity = Vector3.zero;
+    }
 
     public void enableMovement() { isMovementEnabled = true; }
 

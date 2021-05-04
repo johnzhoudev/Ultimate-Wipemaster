@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
         switch(uiManager.getScreenState())
         {
             case ScreenState.WipeoutScreen:
-                if (Input.GetButton("Jump")) { StartCoroutine(wipeoutEnd()); }
+                if (Input.GetButtonDown("Jump")) { StartCoroutine(wipeoutEnd()); }
                 break;
             case ScreenState.EndGameScreen:
                 if (Input.GetButtonDown("Jump")) { StartCoroutine(endGameScreenEnd()); }
