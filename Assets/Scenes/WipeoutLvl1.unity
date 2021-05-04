@@ -13652,8 +13652,10 @@ MonoBehaviour:
   playerController: {fileID: 928569570}
   playerMouseLook: {fileID: 963194229}
   playerView: {fileID: 963194230}
-  startLocation: {x: 36, y: 12, z: 150}
-  startRotation: {x: 0, y: 0, z: 0}
+  _checkpoints:
+  - checkpoint: 0
+    location: {x: 36, y: 12, z: 150}
+    rotation: {x: 0, y: 0, z: 0}
   startCameraVerticalRotation: 0
   developmentMode: 0
   uiManager: {fileID: 426807263}

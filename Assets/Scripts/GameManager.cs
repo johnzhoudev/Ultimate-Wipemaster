@@ -3,20 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 public enum Checkpoint
 {
-    Start = 0,
+    Start,
+    RotatingBar,
+    PunchingWall,
+    Balls
 }
 
 
 public class GameManager : MonoBehaviour
 {
+    [System.Serializable]
+    public struct CheckpointData
+    {
+        public Checkpoint checkpoint;
+        public Vector3 location;
+        public Vector3 rotation;
+    }
+
     const float WIPEOUT_SCREEN_JUMP_DELAY = 0.1f;
     const float CAMERA_STRAIGHT_AHEAD = 0f;
 
     public RigidbodyController playerController;
     public MouseLook playerMouseLook;
     public PlayerView playerView;
-    public Vector3 startLocation;
-    public Vector3 startRotation;
+
+    public CheckpointData[] _checkpoints;
+    Dictionary<Checkpoint, CheckpointData> checkpoints = new Dictionary<Checkpoint, CheckpointData>();
+
     public float startCameraVerticalRotation;
     [Tooltip("Disables ground endgame")]
     public bool developmentMode = false;
@@ -32,6 +45,15 @@ public class GameManager : MonoBehaviour
         playerController.enableMovement();
         uiManager.setScreenState(ScreenState.Normal);
         soundManager.startMusic();
+        loadCheckpoints();
+    }
+
+    void loadCheckpoints() 
+    { 
+        for (int i = 0; i < _checkpoints.Length; ++i)
+        {
+            checkpoints.Add(_checkpoints[i].checkpoint, _checkpoints[i]);
+        }
     }
 
     void Update()
@@ -109,8 +131,8 @@ public class GameManager : MonoBehaviour
 
     public void RestartLevel(Checkpoint checkpoint)
     {
-        //if (developmentMode) { return; }
-        playerController.teleport(startLocation, startRotation);
+        CheckpointData checkpointData = checkpoints[checkpoint];
+        playerController.teleport(checkpointData.location, checkpointData.rotation);
         playerMouseLook.setVerticalCameraRotation(CAMERA_STRAIGHT_AHEAD);
     }
 
