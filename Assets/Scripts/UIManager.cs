@@ -1,19 +1,42 @@
 ﻿using UnityEngine;
-
+public enum ScreenState
+{
+    Normal,
+    WipeoutScreen,
+    EndGameScreen
+}
 public class UIManager : MonoBehaviour
 {
     public GameObject wipeoutScreen;
     public GameObject buttonText;
     public GameObject endGameScreen;
 
-    public void openWipeoutScreen() { wipeoutScreen.SetActive(true); }
+    ScreenState screenState = ScreenState.Normal;
 
-    public void closeWipeoutScreen() { wipeoutScreen.SetActive(false); }
+    public void openWipeoutScreen()
+    {
+        wipeoutScreen.SetActive(true);
+        screenState = ScreenState.WipeoutScreen;
+    }
 
-    public void openEndGameScreen() { endGameScreen.SetActive(true); }
+    public void closeWipeoutScreen()
+    {
+        wipeoutScreen.SetActive(false);
+        screenState = ScreenState.Normal;
+    }
 
-    public void closeEndGameScreen() { endGameScreen.SetActive(false); }
+    public void openEndGameScreen() { 
+        endGameScreen.SetActive(true);
+        screenState = ScreenState.EndGameScreen;
+    }
 
+    public void closeEndGameScreen() { 
+        endGameScreen.SetActive(false);
+        screenState = ScreenState.Normal;
+    }
+
+    public ScreenState getScreenState() { return screenState; }
+    public void setScreenState(ScreenState state) { screenState = state; }
 
     public bool isButtonTextActive() { return buttonText.activeInHierarchy;  }
 

@@ -6,12 +6,6 @@ public enum Checkpoint
     Start = 0,
 }
 
-public enum ScreenState
-{
-    Normal,
-    WipeoutScreen,
-    EndGameScreen
-}
 
 public class GameManager : MonoBehaviour
 {
@@ -33,18 +27,17 @@ public class GameManager : MonoBehaviour
     // Sound Related Imports
     public SoundManager soundManager;
 
-    ScreenState screenState = ScreenState.Normal;
-
     private void Start()
     {
         playerController.enableMovement();
+        uiManager.setScreenState(ScreenState.Normal);
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape)) { Application.Quit(); }
 
-        switch(screenState)
+        switch(uiManager.getScreenState())
         {
             case ScreenState.WipeoutScreen:
                 if (Input.GetButton("Jump")) { StartCoroutine(wipeoutEnd()); }
@@ -75,7 +68,6 @@ public class GameManager : MonoBehaviour
         soundManager.playSound("AirHorn");
         uiManager.openEndGameScreen();
         disableMovement();
-        screenState = ScreenState.EndGameScreen;
     }
     public void onWipeout()
     {
@@ -85,7 +77,6 @@ public class GameManager : MonoBehaviour
         soundManager.playSound("AirHorn");
         uiManager.openWipeoutScreen();
         disableMovement();
-        screenState = ScreenState.WipeoutScreen;
     }
 
     IEnumerator wipeoutEnd()
@@ -93,7 +84,6 @@ public class GameManager : MonoBehaviour
         if (developmentMode) { yield break; }
         soundManager.stopSound("AirHorn");
         uiManager.closeWipeoutScreen();
-        screenState = ScreenState.Normal;
         playerMouseLook.enableMovement();
 
         yield return new WaitForSeconds(WIPEOUT_SCREEN_JUMP_DELAY);
@@ -105,7 +95,6 @@ public class GameManager : MonoBehaviour
         RestartLevel(Checkpoint.Start);
         soundManager.stopSound("AirHorn");
         uiManager.closeEndGameScreen();
-        screenState = ScreenState.Normal;
         playerMouseLook.enableMovement();
 
         yield return new WaitForSeconds(WIPEOUT_SCREEN_JUMP_DELAY);
