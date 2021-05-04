@@ -9,7 +9,7 @@ public enum Checkpoint
 
 public class GameManager : MonoBehaviour
 {
-    const float WIPEOUT_SCREEN_JUMP_DELAY = 0.2f;
+    const float WIPEOUT_SCREEN_JUMP_DELAY = 0.1f;
     const float CAMERA_STRAIGHT_AHEAD = 0f;
 
     public RigidbodyController playerController;
@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     {
         playerController.enableMovement();
         uiManager.setScreenState(ScreenState.Normal);
+        soundManager.startMusic();
     }
 
     void Update()
@@ -40,12 +41,14 @@ public class GameManager : MonoBehaviour
         switch(uiManager.getScreenState())
         {
             case ScreenState.WipeoutScreen:
-                if (Input.GetButton("Jump")) { StartCoroutine(wipeoutEnd()); }
+                if (Input.GetButtonDown("Jump")) { StartCoroutine(wipeoutEnd()); }
                 break;
             case ScreenState.EndGameScreen:
+                if (Input.GetButtonDown("ChangeMusic")) { soundManager.nextSong(); }
                 if (Input.GetButtonDown("Jump")) { StartCoroutine(endGameScreenEnd()); }
                 break;
             case ScreenState.Normal:
+                if (Input.GetButtonDown("ChangeMusic")) { soundManager.nextSong(); }
                 bool isButtonInView = playerView.isButtonTriggerInView();
                 if (!uiManager.isButtonTextActive() && isButtonInView) 
                 { 
@@ -72,6 +75,7 @@ public class GameManager : MonoBehaviour
     public void onWipeout()
     {
         if (developmentMode) { return; }
+        soundManager.stopMusic();
         RestartLevel(Checkpoint.Start);
         soundManager.playSound("Splash");
         soundManager.playSound("AirHorn");
@@ -82,6 +86,7 @@ public class GameManager : MonoBehaviour
     IEnumerator wipeoutEnd()
     {
         if (developmentMode) { yield break; }
+        soundManager.startMusic();
         soundManager.stopSound("AirHorn");
         uiManager.closeWipeoutScreen();
         playerMouseLook.enableMovement();
