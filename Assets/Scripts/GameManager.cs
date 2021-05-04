@@ -44,9 +44,11 @@ public class GameManager : MonoBehaviour
                 if (Input.GetButtonDown("Jump")) { StartCoroutine(wipeoutEnd()); }
                 break;
             case ScreenState.EndGameScreen:
+                if (Input.GetButtonDown("ChangeMusic")) { soundManager.nextSong(); }
                 if (Input.GetButtonDown("Jump")) { StartCoroutine(endGameScreenEnd()); }
                 break;
             case ScreenState.Normal:
+                if (Input.GetButtonDown("ChangeMusic")) { soundManager.nextSong(); }
                 bool isButtonInView = playerView.isButtonTriggerInView();
                 if (!uiManager.isButtonTextActive() && isButtonInView) 
                 { 
