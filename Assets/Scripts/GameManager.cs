@@ -12,13 +12,6 @@ public enum Checkpoint
 
 public class GameManager : MonoBehaviour
 {
-    [System.Serializable]
-    public struct CheckpointData
-    {
-        public Checkpoint checkpoint;
-        public Vector3 location;
-        public Vector3 rotation;
-    }
 
     const float WIPEOUT_SCREEN_JUMP_DELAY = 0.1f;
     const float CAMERA_STRAIGHT_AHEAD = 0f;
@@ -27,10 +20,20 @@ public class GameManager : MonoBehaviour
     public MouseLook playerMouseLook;
     public PlayerView playerView;
 
+    // Checkpoints
+    [System.Serializable]
+    public struct CheckpointData
+    {
+        public Checkpoint checkpoint;
+        public Vector3 location;
+        public Vector3 rotation;
+    }
+
     public CheckpointData[] _checkpoints;
     Dictionary<Checkpoint, CheckpointData> checkpoints = new Dictionary<Checkpoint, CheckpointData>();
 
     public float startCameraVerticalRotation;
+
     [Tooltip("Disables ground endgame")]
     public bool developmentMode = false;
 
@@ -40,7 +43,10 @@ public class GameManager : MonoBehaviour
     // Sound Related Imports
     public SoundManager soundManager;
 
-    private void Start()
+    // Private members
+    Checkpoint currentCheckpoint = Checkpoint.Start;
+
+    void Start()
     {
         playerController.enableMovement();
         uiManager.setScreenState(ScreenState.Normal);
@@ -88,6 +94,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void setCheckpoint(Checkpoint checkpoint)
+    {
+        currentCheckpoint = checkpoint;
+    }
+
     public void endGame()
     {
         soundManager.playSound("AirHorn");
@@ -98,7 +109,7 @@ public class GameManager : MonoBehaviour
     {
         if (developmentMode) { return; }
         soundManager.stopMusic();
-        RestartLevel(Checkpoint.Start);
+        RestartLevel(currentCheckpoint);
         soundManager.playSound("Splash");
         soundManager.playSound("AirHorn");
         uiManager.openWipeoutScreen();
@@ -119,6 +130,7 @@ public class GameManager : MonoBehaviour
     }
     IEnumerator endGameScreenEnd()
     {
+        setCheckpoint(Checkpoint.Start);
         RestartLevel(Checkpoint.Start);
         soundManager.stopSound("AirHorn");
         uiManager.closeEndGameScreen();
