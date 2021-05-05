@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
     {
         playerController.enableMovement();
         uiManager.setScreenState(ScreenState.Normal);
-        soundManager.startMusic();
+        if (!developmentMode) { soundManager.startMusic(); }
         loadCheckpoints();
     }
 
