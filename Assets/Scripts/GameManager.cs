@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 public enum Checkpoint
 {
-    Start,
-    RotatingBar,
-    PunchingWall,
-    Balls
+    Start = 0,
+    RotatingBar = 1,
+    PunchingWall = 2,
+    Balls = 3
 }
 
 
@@ -158,6 +158,11 @@ public class GameManager : MonoBehaviour
     {
         playerController.enableMovement();
         playerMouseLook.enableMovement();
+    }
+
+    public bool isCheckpointGreaterThanCurrentCheckpoint(Checkpoint newCheckpoint)
+    {
+        return (int)currentCheckpoint < (int)newCheckpoint;
     }
 
 }

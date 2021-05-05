@@ -15,7 +15,7 @@ public class SetCheckpoint : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && gameManager.isCheckpointGreaterThanCurrentCheckpoint(checkpoint))
         {
             gameManager.setCheckpoint(checkpoint);
         }
