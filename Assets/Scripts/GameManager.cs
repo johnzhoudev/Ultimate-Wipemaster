@@ -4,20 +4,36 @@ using UnityEngine;
 public enum Checkpoint
 {
     Start = 0,
+    RotatingBar = 1,
+    PunchingWall = 2,
+    Balls = 3
 }
 
 
 public class GameManager : MonoBehaviour
 {
+
     const float WIPEOUT_SCREEN_JUMP_DELAY = 0.1f;
     const float CAMERA_STRAIGHT_AHEAD = 0f;
 
     public RigidbodyController playerController;
     public MouseLook playerMouseLook;
     public PlayerView playerView;
-    public Vector3 startLocation;
-    public Vector3 startRotation;
+
+    // Checkpoints
+    [System.Serializable]
+    public struct CheckpointData
+    {
+        public Checkpoint checkpoint;
+        public Vector3 location;
+        public Vector3 rotation;
+    }
+
+    public CheckpointData[] _checkpoints;
+    Dictionary<Checkpoint, CheckpointData> checkpoints = new Dictionary<Checkpoint, CheckpointData>();
+
     public float startCameraVerticalRotation;
+
     [Tooltip("Disables ground endgame")]
     public bool developmentMode = false;
 
@@ -27,11 +43,23 @@ public class GameManager : MonoBehaviour
     // Sound Related Imports
     public SoundManager soundManager;
 
-    private void Start()
+    // Private members
+    Checkpoint currentCheckpoint = Checkpoint.Start;
+
+    void Start()
     {
         playerController.enableMovement();
         uiManager.setScreenState(ScreenState.Normal);
-        soundManager.startMusic();
+        if (!developmentMode) { soundManager.startMusic(); }
+        loadCheckpoints();
+    }
+
+    void loadCheckpoints() 
+    { 
+        for (int i = 0; i < _checkpoints.Length; ++i)
+        {
+            checkpoints.Add(_checkpoints[i].checkpoint, _checkpoints[i]);
+        }
     }
 
     void Update()
@@ -66,6 +94,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void setCheckpoint(Checkpoint checkpoint)
+    {
+        currentCheckpoint = checkpoint;
+    }
+
     public void endGame()
     {
         soundManager.playSound("AirHorn");
@@ -76,7 +109,7 @@ public class GameManager : MonoBehaviour
     {
         if (developmentMode) { return; }
         soundManager.stopMusic();
-        RestartLevel(Checkpoint.Start);
+        RestartLevel(currentCheckpoint);
         soundManager.playSound("Splash");
         soundManager.playSound("AirHorn");
         uiManager.openWipeoutScreen();
@@ -97,6 +130,7 @@ public class GameManager : MonoBehaviour
     }
     IEnumerator endGameScreenEnd()
     {
+        setCheckpoint(Checkpoint.Start);
         RestartLevel(Checkpoint.Start);
         soundManager.stopSound("AirHorn");
         uiManager.closeEndGameScreen();
@@ -109,8 +143,8 @@ public class GameManager : MonoBehaviour
 
     public void RestartLevel(Checkpoint checkpoint)
     {
-        //if (developmentMode) { return; }
-        playerController.teleport(startLocation, startRotation);
+        CheckpointData checkpointData = checkpoints[checkpoint];
+        playerController.teleport(checkpointData.location, checkpointData.rotation);
         playerMouseLook.setVerticalCameraRotation(CAMERA_STRAIGHT_AHEAD);
     }
 
@@ -124,6 +158,11 @@ public class GameManager : MonoBehaviour
     {
         playerController.enableMovement();
         playerMouseLook.enableMovement();
+    }
+
+    public bool isCheckpointGreaterThanCurrentCheckpoint(Checkpoint newCheckpoint)
+    {
+        return (int)currentCheckpoint < (int)newCheckpoint;
     }
 
 }
