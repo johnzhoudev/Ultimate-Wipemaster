@@ -3974,6 +3974,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BallsCheckpoint
       objectReference: {fileID: 0}
+    - target: {fileID: 6770975040758718591, guid: 1631b43d48af05e4e85cc9094649a405,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1631b43d48af05e4e85cc9094649a405, type: 3}
 --- !u!4 &868886148 stripped
@@ -13849,7 +13854,7 @@ MonoBehaviour:
     location: {x: 136, y: 2.93, z: 154.8}
     rotation: {x: 0, y: 0, z: 0}
   startCameraVerticalRotation: 0
-  developmentMode: 0
+  developmentMode: 1
   uiManager: {fileID: 426807263}
   soundManager: {fileID: 809294299}
 --- !u!4 &1709242585
