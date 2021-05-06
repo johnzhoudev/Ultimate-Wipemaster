@@ -72,8 +72,11 @@ public class SoundManager : MonoBehaviour
         music[MusicPosition].audio.Stop();
         incrementMusicPosition();
         music[MusicPosition].audio.Play();
+        isMusicPlaying = true;
         isMusicPaused = false;
     }
+
+    public bool isGameMusicPlaying() { return isMusicPlaying; }
 
     void loadAudioSources()
     {
