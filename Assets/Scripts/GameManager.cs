@@ -72,7 +72,6 @@ public class GameManager : MonoBehaviour
             timeChangeMusicHeldDown += Time.deltaTime;
             if (timeChangeMusicHeldDown > stopMusicButtonHoldTime)
             {
-                Debug.Log("Stop Music");
                 soundManager.stopMusic();
             }
         } else
@@ -86,11 +85,11 @@ public class GameManager : MonoBehaviour
                 if (Input.GetButtonDown("Jump")) { StartCoroutine(wipeoutEnd()); }
                 break;
             case ScreenState.EndGameScreen:
-                if (Input.GetButtonDown("ChangeMusic")) { soundManager.nextSong(); }
+                if (Input.GetButtonDown("ChangeMusic")) { onChangeMusic(); }
                 if (Input.GetButtonDown("Jump")) { StartCoroutine(endGameScreenEnd()); }
                 break;
             case ScreenState.Normal:
-                if (Input.GetButtonDown("ChangeMusic")) { soundManager.nextSong(); }
+                if (Input.GetButtonDown("ChangeMusic")) { onChangeMusic(); }
                 bool isButtonInView = playerView.isButtonTriggerInView();
                 if (!uiManager.isButtonTextActive() && isButtonInView) 
                 { 
@@ -105,6 +104,18 @@ public class GameManager : MonoBehaviour
                     endGame();
                 }
                 break;
+        }
+    }
+
+    void onChangeMusic()
+    {
+        if (soundManager.isGameMusicPlaying())
+        {
+            soundManager.nextSong();
+        }
+        else
+        {
+            soundManager.startMusic();
         }
     }
 
