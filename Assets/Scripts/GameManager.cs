@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     Dictionary<Checkpoint, CheckpointData> checkpoints = new Dictionary<Checkpoint, CheckpointData>();
 
     public float startCameraVerticalRotation;
+    public float stopMusicButtonHoldTime;
 
     [Tooltip("Disables ground endgame")]
     public bool developmentMode = false;
@@ -45,6 +46,7 @@ public class GameManager : MonoBehaviour
 
     // Private members
     Checkpoint currentCheckpoint = Checkpoint.Start;
+    float timeChangeMusicHeldDown = 0f;
 
     void Start()
     {
@@ -65,6 +67,18 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape)) { Application.Quit(); }
+        if (Input.GetButton("ChangeMusic")) 
+        {
+            timeChangeMusicHeldDown += Time.deltaTime;
+            if (timeChangeMusicHeldDown > stopMusicButtonHoldTime)
+            {
+                Debug.Log("Stop Music");
+                soundManager.stopMusic();
+            }
+        } else
+        {
+            timeChangeMusicHeldDown = 0f;
+        }
 
         switch(uiManager.getScreenState())
         {
