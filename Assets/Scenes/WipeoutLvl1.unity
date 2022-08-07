@@ -13855,7 +13855,7 @@ MonoBehaviour:
     rotation: {x: 0, y: 0, z: 0}
   startCameraVerticalRotation: 0
   stopMusicButtonHoldTime: 2
-  developmentMode: 0
+  developmentMode: 1
   uiManager: {fileID: 426807263}
   soundManager: {fileID: 809294299}
 --- !u!4 &1709242585
